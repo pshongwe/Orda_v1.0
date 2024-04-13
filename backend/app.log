@@ -43,3 +43,27 @@
  * Running on http://10.89.0.105:5001
 2024-04-13 16:33:36,979 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
 2024-04-13 16:34:43,236 INFO werkzeug Thread-2 : 10.89.0.105 - - [13/Apr/2024 16:34:43] "GET /api/data HTTP/1.1" 200 -
+2024-04-13 17:06:42,283 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://10.89.0.114:5001
+2024-04-13 17:06:42,283 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2024-04-13 17:07:50,290 INFO werkzeug Thread-1 : 10.89.0.114 - - [13/Apr/2024 17:07:50] "GET / HTTP/1.1" 200 -
+2024-04-13 17:07:50,319 INFO werkzeug Thread-2 : 10.89.0.114 - - [13/Apr/2024 17:07:50] "GET /swaggerui/droid-sans.css HTTP/1.1" 200 -
+2024-04-13 17:07:50,326 INFO werkzeug Thread-3 : 10.89.0.114 - - [13/Apr/2024 17:07:50] "GET /swaggerui/swagger-ui.css HTTP/1.1" 200 -
+2024-04-13 17:07:50,327 INFO werkzeug Thread-5 : 10.89.0.114 - - [13/Apr/2024 17:07:50] "GET /swaggerui/swagger-ui-bundle.js HTTP/1.1" 200 -
+2024-04-13 17:07:50,327 INFO werkzeug Thread-4 : 10.89.0.114 - - [13/Apr/2024 17:07:50] "GET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1" 200 -
+2024-04-13 17:07:50,468 INFO werkzeug Thread-6 : 10.89.0.114 - - [13/Apr/2024 17:07:50] "GET /swagger.json HTTP/1.1" 200 -
+2024-04-13 17:07:50,500 INFO werkzeug Thread-7 : 10.89.0.114 - - [13/Apr/2024 17:07:50] "GET /swaggerui/favicon-32x32.png HTTP/1.1" 200 -
+2024-04-13 17:08:14,392 INFO werkzeug Thread-8 : 10.89.0.114 - - [13/Apr/2024 17:08:14] "GET /api/data HTTP/1.1" 200 -
+2024-04-13 17:08:17,116 INFO werkzeug Thread-9 : 10.89.0.114 - - [13/Apr/2024 17:08:17] "GET /api/data HTTP/1.1" 200 -
+2024-04-13 17:09:30,737 INFO werkzeug Thread-10 : 10.89.0.114 - - [13/Apr/2024 17:09:30] "GET /api/data HTTP/1.1" 200 -
+2024-04-13 17:09:34,533 INFO werkzeug Thread-12 : 10.89.0.114 - - [13/Apr/2024 17:09:34] "GET / HTTP/1.1" 200 -
+2024-04-13 17:09:34,565 INFO werkzeug Thread-11 : 10.89.0.114 - - [13/Apr/2024 17:09:34] "[36mGET /swaggerui/droid-sans.css HTTP/1.1[0m" 304 -
+2024-04-13 17:09:34,568 INFO werkzeug Thread-13 : 10.89.0.114 - - [13/Apr/2024 17:09:34] "[36mGET /swaggerui/swagger-ui.css HTTP/1.1[0m" 304 -
+2024-04-13 17:09:34,572 INFO werkzeug Thread-15 : 10.89.0.114 - - [13/Apr/2024 17:09:34] "[36mGET /swaggerui/swagger-ui-bundle.js HTTP/1.1[0m" 304 -
+2024-04-13 17:09:34,573 INFO werkzeug Thread-14 : 10.89.0.114 - - [13/Apr/2024 17:09:34] "[36mGET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 -
+2024-04-13 17:09:34,674 INFO werkzeug Thread-16 : 10.89.0.114 - - [13/Apr/2024 17:09:34] "GET /swagger.json HTTP/1.1" 200 -
+2024-04-13 17:09:34,677 INFO werkzeug Thread-17 : 10.89.0.114 - - [13/Apr/2024 17:09:34] "[36mGET /swaggerui/favicon-32x32.png HTTP/1.1[0m" 304 -
+2024-04-13 17:09:48,180 INFO werkzeug Thread-18 : 10.89.0.114 - - [13/Apr/2024 17:09:48] "GET /api/data HTTP/1.1" 200 -
+2024-04-13 17:10:15,685 INFO werkzeug Thread-19 : 10.89.0.114 - - [13/Apr/2024 17:10:15] "GET /api/data HTTP/1.1" 200 -
