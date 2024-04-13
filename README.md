@@ -25,3 +25,10 @@ Before you can run Ordalyst, make sure you have the following installed:
 - Node.js 14.x+
 - MongoDB
 
+## Run
+
+$ `podman-compose build` \
+$ `podman-compose up`
+
+when done do: \
+$ `podman-compose down`
