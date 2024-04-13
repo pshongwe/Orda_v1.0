@@ -18,3 +18,12 @@ services:
     image: mongo
     ports:
       - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    security_opt:
+      - label=disable
+    user: "root"
+
+volumes:
+  mongodb_data:
+    driver: local

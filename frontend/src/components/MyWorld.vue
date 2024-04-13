@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button @click="fetchData">Fetch Data</button>
+    <button @click="fetchData" class="fetch-button">Fetch Data</button>
     <p>{{ message }}</p>
   </div>
 </template>
@@ -27,3 +27,23 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.fetch-button {
+  background-color: #4CAF50; /* Green */
+  color: white;
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.fetch-button:hover {
+  background-color: #45a049;
+}
+</style>
