@@ -16,3 +16,8 @@
  * Running on http://127.0.0.1:5001
  * Running on http://10.89.0.91:5001
 2024-04-13 16:22:58,160 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2024-04-13 16:26:06,666 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://10.89.0.94:5001
+2024-04-13 16:26:06,667 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
