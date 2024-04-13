@@ -27,7 +27,7 @@ class OrderList(Resource):
     @api.marshal_list_with(model)
     def get(self):
         '''List all orders'''
-        return [{'id': 1, 'name': 'Sample Order'}]
+        return [{'id': 1, 'name': 'Sample Order', 'quantity': 10}]
 
 
 if __name__ == '__main__':
