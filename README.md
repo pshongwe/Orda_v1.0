@@ -1,4 +1,4 @@
-# Ordalyst
+# OrdaSys
 
 ## Introduction
 Ordalyst is an Order Management System designed to streamline and optimize the management of orders for restaurants and food service providers. It provides a comprehensive suite of tools for managing orders, inventory, and customer data, all accessible via a user-friendly web interface.
