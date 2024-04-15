@@ -1,7 +1,7 @@
 # OrdaSys
 
 ## Introduction
-Ordalyst is an Order Management System designed to streamline and optimize the management of orders for restaurants and food service providers. It provides a comprehensive suite of tools for managing orders, inventory, and customer data, all accessible via a user-friendly web interface.
+OrdaSys is an Order Management System designed to streamline and optimize the management of orders for restaurants and food service providers. It provides a comprehensive suite of tools for managing orders, inventory, and customer data, all accessible via a user-friendly web interface.
 
 ## Features
 - **Order Tracking:** Track orders from placement through fulfillment.
@@ -11,7 +11,7 @@ Ordalyst is an Order Management System designed to streamline and optimize the m
 - **Multi-user Support:** Different access levels for staff, managers, and administrators.
 
 ## Technologies
-Ordalyst is built using the following technologies:
+OrdaSys is built using the following technologies:
 - **Frontend:** Vue.js
 - **Backend:** Python Flask
 - **Database:** MongoDB
@@ -19,7 +19,7 @@ Ordalyst is built using the following technologies:
 - **API Documentation:** Swagger (OpenAPI)
 
 ## Prerequisites
-Before you can run Ordalyst, make sure you have the following installed:
+Before you can run OrdaSys, make sure you have the following installed:
 - Podman (or Docker)
 - Python 3.8+
 - Node.js 14.x+
