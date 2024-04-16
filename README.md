@@ -26,9 +26,10 @@ Before you can run OrdaSys, make sure you have the following installed:
 - MongoDB
 
 ## Run
-
+$ `python3 -m venv venv` \
+$ `source venv/bin/activate` \
 $ `podman-compose build` \
 $ `podman-compose up`
 
-when done do: \
+when done do the following after `ctrl` + `c`: \
 $ `podman-compose down`
