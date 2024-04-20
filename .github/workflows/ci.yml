@@ -33,11 +33,6 @@ jobs:
         source venv/bin/activate
         curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
         python get-pip.py
-
-    - name: Set up Python environment
-      run: |
-        python3 -m venv venv
-        source venv/bin/activate
         pip install -r backend/requirements.txt
 
     - name: Build and run with Podman Compose
