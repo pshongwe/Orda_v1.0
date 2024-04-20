@@ -25,15 +25,15 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.11'
+        python-version: '3.8'
 
     - name: Create and activate virtual environment
       run: |
         python3 -m venv venv --without-pip
         source venv/bin/activate
         curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-        python get-pip.py
-        pip install -r backend/requirements.txt
+        python3 get-pip.py
+        pip3 install -r backend/requirements.txt
 
     - name: Build and run with Podman Compose
       run: |
