@@ -22,6 +22,11 @@ jobs:
         sudo apt-get update
         sudo apt-get -y install podman
 
+
+    - name: Install Podman-Compose
+      run: |
+        sudo pip install podman-compose
+
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
