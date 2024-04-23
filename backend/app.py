@@ -12,7 +12,7 @@ CORS(app)
 # Configure logging
 logging.basicConfig(filename='app.log', level=logging.DEBUG,
                     format='%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s')
-api = Api(app)
+api = Api(app, version='1.0', title='API Documentation', description='A simple API', doc='/swagger/')
 
 # Model definition
 model = api.model('Order', {
