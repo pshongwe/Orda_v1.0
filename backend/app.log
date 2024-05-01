@@ -152,3 +152,211 @@
 2024-04-23 17:55:54,444 INFO werkzeug Thread-7 : 10.89.0.21 - - [23/Apr/2024 17:55:54] "GET /swagger.json HTTP/1.1" 200 -
 2024-04-23 17:55:54,766 INFO werkzeug Thread-8 : 10.89.0.21 - - [23/Apr/2024 17:55:54] "GET /swaggerui/favicon-32x32.png HTTP/1.1" 200 -
 2024-04-23 17:56:20,354 INFO werkzeug Thread-9 : 10.89.0.21 - - [23/Apr/2024 17:56:20] "GET /api/data HTTP/1.1" 200 -
+2024-04-25 00:59:33,621 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://10.89.0.24:5001
+2024-04-25 00:59:33,622 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2024-04-25 01:00:58,106 INFO werkzeug Thread-1 : 10.89.0.24 - - [25/Apr/2024 01:00:58] "[33mGET /api/data HTTP/1.1[0m" 404 -
+2024-04-25 01:01:13,649 INFO werkzeug Thread-3 : 10.89.0.24 - - [25/Apr/2024 01:01:13] "[33mGET /api/data HTTP/1.1[0m" 404 -
+2024-04-25 01:02:03,071 ERROR app Thread-4 : Exception on /api/orders [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/usr/local/lib/python3.9/site-packages/flask_restx/api.py", line 402, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/flask/views.py", line 107, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)
+  File "/usr/local/lib/python3.9/site-packages/flask_restx/resource.py", line 41, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/flask_restx/marshalling.py", line 244, in wrapper
+    resp = f(*args, **kwargs)
+  File "/app/app.py", line 32, in get
+    return list(orders)
+  File "/usr/local/lib/python3.9/site-packages/pymongo/cursor.py", line 1264, in next
+    if len(self.__data) or self._refresh():
+  File "/usr/local/lib/python3.9/site-packages/pymongo/cursor.py", line 1155, in _refresh
+    self.__session = self.__collection.database.client._ensure_session()
+  File "/usr/local/lib/python3.9/site-packages/pymongo/mongo_client.py", line 1823, in _ensure_session
+    return self.__start_session(True, causal_consistency=False)
+  File "/usr/local/lib/python3.9/site-packages/pymongo/mongo_client.py", line 1766, in __start_session
+    self._topology._check_implicit_session_support()
+  File "/usr/local/lib/python3.9/site-packages/pymongo/topology.py", line 573, in _check_implicit_session_support
+    self._check_session_support()
+  File "/usr/local/lib/python3.9/site-packages/pymongo/topology.py", line 589, in _check_session_support
+    self._select_servers_loop(
+  File "/usr/local/lib/python3.9/site-packages/pymongo/topology.py", line 259, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [Errno 111] Connection refused (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 6629aaf5100d45902f44ce12, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [Errno 111] Connection refused (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+2024-04-25 01:02:03,100 INFO werkzeug Thread-4 : 10.89.0.24 - - [25/Apr/2024 01:02:03] "[35m[1mGET /api/orders HTTP/1.1[0m" 500 -
+2024-04-25 01:03:53,212 INFO werkzeug Thread-7 : 10.89.0.24 - - [25/Apr/2024 01:03:53] "GET /swagger.json HTTP/1.1" 200 -
+2024-04-25 01:03:57,186 INFO werkzeug Thread-8 : 10.89.0.24 - - [25/Apr/2024 01:03:57] "[32mGET /swagger HTTP/1.1[0m" 308 -
+2024-04-25 01:03:57,215 INFO werkzeug Thread-9 : 10.89.0.24 - - [25/Apr/2024 01:03:57] "GET /swagger/ HTTP/1.1" 200 -
+2024-04-25 01:03:57,266 INFO werkzeug Thread-13 : 10.89.0.24 - - [25/Apr/2024 01:03:57] "GET /swaggerui/droid-sans.css HTTP/1.1" 200 -
+2024-04-25 01:03:57,268 INFO werkzeug Thread-10 : 10.89.0.24 - - [25/Apr/2024 01:03:57] "GET /swaggerui/swagger-ui.css HTTP/1.1" 200 -
+2024-04-25 01:03:57,270 INFO werkzeug Thread-11 : 10.89.0.24 - - [25/Apr/2024 01:03:57] "GET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1" 200 -
+2024-04-25 01:03:57,271 INFO werkzeug Thread-12 : 10.89.0.24 - - [25/Apr/2024 01:03:57] "GET /swaggerui/swagger-ui-bundle.js HTTP/1.1" 200 -
+2024-04-25 01:03:57,313 INFO werkzeug Thread-14 : 10.89.0.24 - - [25/Apr/2024 01:03:57] "GET /swaggerui/swagger-ui.css.map HTTP/1.1" 200 -
+2024-04-25 01:03:57,390 INFO werkzeug Thread-15 : 10.89.0.24 - - [25/Apr/2024 01:03:57] "GET /swaggerui/swagger-ui-bundle.js.map HTTP/1.1" 200 -
+2024-04-25 01:03:57,417 INFO werkzeug Thread-16 : 10.89.0.24 - - [25/Apr/2024 01:03:57] "GET /swaggerui/swagger-ui-standalone-preset.js.map HTTP/1.1" 200 -
+2024-04-25 01:03:57,450 INFO werkzeug Thread-17 : 10.89.0.24 - - [25/Apr/2024 01:03:57] "GET /swagger.json HTTP/1.1" 200 -
+2024-04-25 01:04:49,280 ERROR app Thread-18 : Exception on /api/orders [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/usr/local/lib/python3.9/site-packages/flask_restx/api.py", line 402, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/flask/views.py", line 107, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)
+  File "/usr/local/lib/python3.9/site-packages/flask_restx/resource.py", line 41, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/flask_restx/marshalling.py", line 244, in wrapper
+    resp = f(*args, **kwargs)
+  File "/app/app.py", line 32, in get
+    return list(orders)
+  File "/usr/local/lib/python3.9/site-packages/pymongo/cursor.py", line 1264, in next
+    if len(self.__data) or self._refresh():
+  File "/usr/local/lib/python3.9/site-packages/pymongo/cursor.py", line 1155, in _refresh
+    self.__session = self.__collection.database.client._ensure_session()
+  File "/usr/local/lib/python3.9/site-packages/pymongo/mongo_client.py", line 1823, in _ensure_session
+    return self.__start_session(True, causal_consistency=False)
+  File "/usr/local/lib/python3.9/site-packages/pymongo/mongo_client.py", line 1766, in __start_session
+    self._topology._check_implicit_session_support()
+  File "/usr/local/lib/python3.9/site-packages/pymongo/topology.py", line 573, in _check_implicit_session_support
+    self._check_session_support()
+  File "/usr/local/lib/python3.9/site-packages/pymongo/topology.py", line 589, in _check_session_support
+    self._select_servers_loop(
+  File "/usr/local/lib/python3.9/site-packages/pymongo/topology.py", line 259, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [Errno 111] Connection refused (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 6629aaf5100d45902f44ce12, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [Errno 111] Connection refused (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+2024-04-25 01:04:49,295 INFO werkzeug Thread-18 : 10.89.0.24 - - [25/Apr/2024 01:04:49] "[35m[1mGET /api/orders HTTP/1.1[0m" 500 -
+2024-04-25 01:05:04,244 INFO werkzeug Thread-20 : 10.89.0.24 - - [25/Apr/2024 01:05:04] "[36mGET /swaggerui/swagger-ui.css HTTP/1.1[0m" 304 -
+2024-04-25 01:05:04,245 INFO werkzeug Thread-21 : 10.89.0.24 - - [25/Apr/2024 01:05:04] "[36mGET /swaggerui/droid-sans.css HTTP/1.1[0m" 304 -
+2024-04-25 01:05:04,249 INFO werkzeug Thread-22 : 10.89.0.24 - - [25/Apr/2024 01:05:04] "GET /swaggerui/swagger-ui-bundle.js.map HTTP/1.1" 200 -
+2024-04-25 01:05:04,250 INFO werkzeug Thread-23 : 10.89.0.24 - - [25/Apr/2024 01:05:04] "GET /swaggerui/swagger-ui-standalone-preset.js.map HTTP/1.1" 200 -
+2024-04-25 01:05:04,289 INFO werkzeug Thread-24 : 10.89.0.24 - - [25/Apr/2024 01:05:04] "GET /swaggerui/swagger-ui.css.map HTTP/1.1" 200 -
+2024-04-25 01:05:28,215 ERROR app Thread-19 : Exception on /api/orders [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/usr/local/lib/python3.9/site-packages/flask_restx/api.py", line 402, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/flask/views.py", line 107, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)
+  File "/usr/local/lib/python3.9/site-packages/flask_restx/resource.py", line 41, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/flask_restx/marshalling.py", line 244, in wrapper
+    resp = f(*args, **kwargs)
+  File "/app/app.py", line 42, in post
+    order = mongo.db.orders.insert_one({
+  File "/usr/local/lib/python3.9/site-packages/pymongo/collection.py", line 669, in insert_one
+    self._insert_one(
+  File "/usr/local/lib/python3.9/site-packages/pymongo/collection.py", line 609, in _insert_one
+    self.__database.client._retryable_write(acknowledged, _insert_command, session)
+  File "/usr/local/lib/python3.9/site-packages/pymongo/mongo_client.py", line 1522, in _retryable_write
+    with self._tmp_session(session) as s:
+  File "/usr/local/lib/python3.9/contextlib.py", line 119, in __enter__
+    return next(self.gen)
+  File "/usr/local/lib/python3.9/site-packages/pymongo/mongo_client.py", line 1840, in _tmp_session
+    s = self._ensure_session(session)
+  File "/usr/local/lib/python3.9/site-packages/pymongo/mongo_client.py", line 1823, in _ensure_session
+    return self.__start_session(True, causal_consistency=False)
+  File "/usr/local/lib/python3.9/site-packages/pymongo/mongo_client.py", line 1766, in __start_session
+    self._topology._check_implicit_session_support()
+  File "/usr/local/lib/python3.9/site-packages/pymongo/topology.py", line 573, in _check_implicit_session_support
+    self._check_session_support()
+  File "/usr/local/lib/python3.9/site-packages/pymongo/topology.py", line 589, in _check_session_support
+    self._select_servers_loop(
+  File "/usr/local/lib/python3.9/site-packages/pymongo/topology.py", line 259, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [Errno 111] Connection refused (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 6629aaf5100d45902f44ce12, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [Errno 111] Connection refused (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+2024-04-25 01:05:28,238 INFO werkzeug Thread-19 : 10.89.0.24 - - [25/Apr/2024 01:05:28] "[35m[1mPOST /api/orders HTTP/1.1[0m" 500 -
+2024-04-27 16:29:27,597 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://10.89.0.27:5001
+2024-04-27 16:29:27,598 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2024-04-27 16:29:34,353 INFO werkzeug Thread-2 : 10.89.0.27 - - [27/Apr/2024 16:29:34] "[33mGET /api/data HTTP/1.1[0m" 404 -
+2024-04-27 16:29:51,779 INFO werkzeug Thread-4 : 10.89.0.27 - - [27/Apr/2024 16:29:51] "[33mGET /api/data HTTP/1.1[0m" 404 -
+2024-04-27 16:29:57,143 INFO werkzeug Thread-5 : 10.89.0.27 - - [27/Apr/2024 16:29:57] "[33mGET / HTTP/1.1[0m" 404 -
+2024-04-27 16:30:59,163 ERROR app Thread-8 : Exception on /api/orders [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/usr/local/lib/python3.9/site-packages/flask_restx/api.py", line 402, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/flask/views.py", line 107, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)
+  File "/usr/local/lib/python3.9/site-packages/flask_restx/resource.py", line 41, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/flask_restx/marshalling.py", line 244, in wrapper
+    resp = f(*args, **kwargs)
+  File "/app/app.py", line 32, in get
+    return list(orders)
+  File "/usr/local/lib/python3.9/site-packages/pymongo/cursor.py", line 1264, in next
+    if len(self.__data) or self._refresh():
+  File "/usr/local/lib/python3.9/site-packages/pymongo/cursor.py", line 1155, in _refresh
+    self.__session = self.__collection.database.client._ensure_session()
+  File "/usr/local/lib/python3.9/site-packages/pymongo/mongo_client.py", line 1823, in _ensure_session
+    return self.__start_session(True, causal_consistency=False)
+  File "/usr/local/lib/python3.9/site-packages/pymongo/mongo_client.py", line 1766, in __start_session
+    self._topology._check_implicit_session_support()
+  File "/usr/local/lib/python3.9/site-packages/pymongo/topology.py", line 573, in _check_implicit_session_support
+    self._check_session_support()
+  File "/usr/local/lib/python3.9/site-packages/pymongo/topology.py", line 589, in _check_session_support
+    self._select_servers_loop(
+  File "/usr/local/lib/python3.9/site-packages/pymongo/topology.py", line 259, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [Errno 111] Connection refused (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 662d27e7ddd754d4d2105bcf, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [Errno 111] Connection refused (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+2024-04-27 16:30:59,187 INFO werkzeug Thread-8 : 10.89.0.27 - - [27/Apr/2024 16:30:59] "[35m[1mGET /api/orders HTTP/1.1[0m" 500 -
+2024-05-01 06:24:52,564 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://10.89.0.34:5001
+2024-05-01 06:24:52,567 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2024-05-01 06:28:01,383 DEBUG pymongo.serverSelection Thread-1 : {"message": "Server selection started", "selector": "Primary()", "operation": "find", "topologyDescription": "<TopologyDescription id: 6631e0342fc950d6bb9de820, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-yvwh3s7-shard-00-00.3msgl70.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-yvwh3s7-shard-00-01.3msgl70.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-yvwh3s7-shard-00-02.3msgl70.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6631e0342fc950d6bb9de820"}}
+2024-05-01 06:28:01,394 INFO pymongo.serverSelection Thread-1 : {"message": "Waiting for suitable server to become available", "selector": "Primary()", "operation": "find", "topologyDescription": "<TopologyDescription id: 6631e0342fc950d6bb9de820, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-yvwh3s7-shard-00-00.3msgl70.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-yvwh3s7-shard-00-01.3msgl70.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-yvwh3s7-shard-00-02.3msgl70.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6631e0342fc950d6bb9de820"}, "remainingTimeMS": 29}
+2024-05-01 06:28:01,709 DEBUG pymongo.serverSelection Thread-1 : {"message": "Server selection succeeded", "selector": "Primary()", "operation": "find", "topologyDescription": "<TopologyDescription id: 6631e0342fc950d6bb9de820, topology_type: ReplicaSetWithPrimary, servers: [<ServerDescription ('ac-yvwh3s7-shard-00-00.3msgl70.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-yvwh3s7-shard-00-01.3msgl70.mongodb.net', 27017) server_type: RSPrimary, rtt: 0.025451198991504498>, <ServerDescription ('ac-yvwh3s7-shard-00-02.3msgl70.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6631e0342fc950d6bb9de820"}, "serverHost": "ac-yvwh3s7-shard-00-01.3msgl70.mongodb.net", "serverPort": 27017}
+2024-05-01 06:28:01,911 DEBUG pymongo.command Thread-1 : {"clientId": {"$oid": "6631e0342fc950d6bb9de820"}, "message": "Command started", "command": "{\"find\": \"orders\", \"lsid\": {\"id\": {\"$binary\": {\"base64\": \"q6US3UvqSb2ybBK+rF+52Q==\", \"subType\": \"04\"}}}, \"$clusterTime\": {\"clusterTime\": {\"$timestamp\": {\"t\": 1714544881, \"i\": 4}}, \"signature\": {\"hash\": {\"$binary\": {\"base64\": \"SVbjD7bybCon6nCj2ITE/Xkj1hM=\", \"subType\": \"00\"}}, \"keyId\": 7299148863439372290}}, \"$db\": \"order_management\"}", "commandName": "find", "databaseName": "order_management", "requestId": 783368690, "operationId": 783368690, "driverConnectionId": 1, "serverConnectionId": 232977, "serverHost": "ac-yvwh3s7-shard-00-01.3msgl70.mongodb.net", "serverPort": 27017}
+2024-05-01 06:28:01,936 DEBUG pymongo.command Thread-1 : {"clientId": {"$oid": "6631e0342fc950d6bb9de820"}, "message": "Command succeeded", "durationMS": 25.758, "reply": "{\"cursor\": {\"firstBatch\": [{\"_id\": {\"$oid\": \"6631da4c6de2f33ecbd3bd28\"}, \"order_id\": \"1001\", \"customer_id\": \"501\", \"items\": [{\"item_id\": \"101\", \"quantity\": 2, \"price\": 25.5}, {\"item_id\": \"105\", \"quantity\": 1, \"price\": 5.75}], \"total\": 56.75, \"date\": \"2024-04-15\", \"status\": \"Shipped\"}, {\"_id\": {\"$oid\": \"6631da4c6de2f33ecbd3bd29\"}, \"order_id\": \"1002\", \"customer_id\": \"502\", \"items\": [{\"item_id\": \"103\", \"quantity\": 1, \"price\": 15.0}], \"total\": 15.0, \"date\": \"2024-04-16\", \"status\": \"Pending\"}], \"ns\": \"order_management.orders\"}, \"ok\": 1.0, \"$clusterTime\": {\"clusterTime\": {\"$timestamp\": {\"t\": 1714544881, \"i\": 11}}, \"signature\": {\"hash\": {\"$binary\": {\"base64\": \"SVbjD7bybCon6nCj2ITE/Xkj1hM=\", \"subType\": \"00\"}}, \"keyId\": 7299148863439372290}}, \"operationTime\": {\"$timestamp\": {\"t\": 1714544881, \"i\": 11}}}", "commandName": "find", "databaseName": "order_management", "requestId": 783368690, "operationId": 783368690, "driverConnectionId": 1, "serverConnectionId": 232977, "serverHost": "ac-yvwh3s7-shard-00-01.3msgl70.mongodb.net", "serverPort": 27017}
+2024-05-01 06:28:01,947 INFO werkzeug Thread-1 : 10.89.0.34 - - [01/May/2024 06:28:01] "GET /api/orders HTTP/1.1" 200 -
+2024-05-01 06:28:42,614 DEBUG pymongo.serverSelection Thread-3 : {"message": "Server selection started", "selector": "Primary()", "operation": "find", "topologyDescription": "<TopologyDescription id: 6631e0342fc950d6bb9de820, topology_type: ReplicaSetWithPrimary, servers: [<ServerDescription ('ac-yvwh3s7-shard-00-00.3msgl70.mongodb.net', 27017) server_type: RSSecondary, rtt: 0.038547603535908276>, <ServerDescription ('ac-yvwh3s7-shard-00-01.3msgl70.mongodb.net', 27017) server_type: RSPrimary, rtt: 0.028519141297903845>, <ServerDescription ('ac-yvwh3s7-shard-00-02.3msgl70.mongodb.net', 27017) server_type: RSSecondary, rtt: 0.03350649050406647>]>", "clientId": {"$oid": "6631e0342fc950d6bb9de820"}}
+2024-05-01 06:28:42,628 DEBUG pymongo.serverSelection Thread-3 : {"message": "Server selection succeeded", "selector": "Primary()", "operation": "find", "topologyDescription": "<TopologyDescription id: 6631e0342fc950d6bb9de820, topology_type: ReplicaSetWithPrimary, servers: [<ServerDescription ('ac-yvwh3s7-shard-00-00.3msgl70.mongodb.net', 27017) server_type: RSSecondary, rtt: 0.038547603535908276>, <ServerDescription ('ac-yvwh3s7-shard-00-01.3msgl70.mongodb.net', 27017) server_type: RSPrimary, rtt: 0.028519141297903845>, <ServerDescription ('ac-yvwh3s7-shard-00-02.3msgl70.mongodb.net', 27017) server_type: RSSecondary, rtt: 0.03350649050406647>]>", "clientId": {"$oid": "6631e0342fc950d6bb9de820"}, "serverHost": "ac-yvwh3s7-shard-00-01.3msgl70.mongodb.net", "serverPort": 27017}
+2024-05-01 06:28:42,634 DEBUG pymongo.command Thread-3 : {"clientId": {"$oid": "6631e0342fc950d6bb9de820"}, "message": "Command started", "command": "{\"find\": \"orders\", \"lsid\": {\"id\": {\"$binary\": {\"base64\": \"q6US3UvqSb2ybBK+rF+52Q==\", \"subType\": \"04\"}}}, \"$clusterTime\": {\"clusterTime\": {\"$timestamp\": {\"t\": 1714544921, \"i\": 8}}, \"signature\": {\"hash\": {\"$binary\": {\"base64\": \"pX6bl84I0HRtLKkjrj4e4OV56SQ=\", \"subType\": \"00\"}}, \"keyId\": 7299148863439372290}}, \"$db\": \"order_management\"}", "commandName": "find", "databaseName": "order_management", "requestId": 861021530, "operationId": 861021530, "driverConnectionId": 1, "serverConnectionId": 232977, "serverHost": "ac-yvwh3s7-shard-00-01.3msgl70.mongodb.net", "serverPort": 27017}
+2024-05-01 06:28:42,663 DEBUG pymongo.command Thread-3 : {"clientId": {"$oid": "6631e0342fc950d6bb9de820"}, "message": "Command succeeded", "durationMS": 29.583000000000002, "reply": "{\"cursor\": {\"firstBatch\": [{\"_id\": {\"$oid\": \"6631da4c6de2f33ecbd3bd28\"}, \"order_id\": \"1001\", \"customer_id\": \"501\", \"items\": [{\"item_id\": \"101\", \"quantity\": 2, \"price\": 25.5}, {\"item_id\": \"105\", \"quantity\": 1, \"price\": 5.75}], \"total\": 56.75, \"date\": \"2024-04-15\", \"status\": \"Shipped\"}, {\"_id\": {\"$oid\": \"6631da4c6de2f33ecbd3bd29\"}, \"order_id\": \"1002\", \"customer_id\": \"502\", \"items\": [{\"item_id\": \"103\", \"quantity\": 1, \"price\": 15.0}], \"total\": 15.0, \"date\": \"2024-04-16\", \"status\": \"Pending\"}], \"ns\": \"order_management.orders\"}, \"ok\": 1.0, \"$clusterTime\": {\"clusterTime\": {\"$timestamp\": {\"t\": 1714544922, \"i\": 9}}, \"signature\": {\"hash\": {\"$binary\": {\"base64\": \"oOv9DRpQT4Rv71cNJFVfLjvcJhc=\", \"subType\": \"00\"}}, \"keyId\": 7299148863439372290}}, \"operationTime\": {\"$timestamp\": {\"t\": 1714544922, \"i\": 9}}}", "commandName": "find", "databaseName": "order_management", "requestId": 861021530, "operationId": 861021530, "driverConnectionId": 1, "serverConnectionId": 232977, "serverHost": "ac-yvwh3s7-shard-00-01.3msgl70.mongodb.net", "serverPort": 27017}
+2024-05-01 06:28:42,676 INFO werkzeug Thread-3 : 10.89.0.34 - - [01/May/2024 06:28:42] "GET /api/orders HTTP/1.1" 200 -
+2024-05-01 06:31:47,857 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://10.89.0.35:5001
+2024-05-01 06:31:47,860 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2024-05-01 06:32:00,381 DEBUG pymongo.serverSelection Thread-2 : {"message": "Server selection started", "selector": "Primary()", "operation": "find", "topologyDescription": "<TopologyDescription id: 6631e1d3444f54da3f0699c3, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-yvwh3s7-shard-00-00.3msgl70.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-yvwh3s7-shard-00-01.3msgl70.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-yvwh3s7-shard-00-02.3msgl70.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6631e1d3444f54da3f0699c3"}}
+2024-05-01 06:32:00,386 INFO pymongo.serverSelection Thread-2 : {"message": "Waiting for suitable server to become available", "selector": "Primary()", "operation": "find", "topologyDescription": "<TopologyDescription id: 6631e1d3444f54da3f0699c3, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-yvwh3s7-shard-00-00.3msgl70.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-yvwh3s7-shard-00-01.3msgl70.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-yvwh3s7-shard-00-02.3msgl70.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6631e1d3444f54da3f0699c3"}, "remainingTimeMS": 29}
+2024-05-01 06:32:00,596 DEBUG pymongo.serverSelection Thread-2 : {"message": "Server selection succeeded", "selector": "Primary()", "operation": "find", "topologyDescription": "<TopologyDescription id: 6631e1d3444f54da3f0699c3, topology_type: ReplicaSetWithPrimary, servers: [<ServerDescription ('ac-yvwh3s7-shard-00-00.3msgl70.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-yvwh3s7-shard-00-01.3msgl70.mongodb.net', 27017) server_type: RSPrimary, rtt: 0.02510719899146352>, <ServerDescription ('ac-yvwh3s7-shard-00-02.3msgl70.mongodb.net', 27017) server_type: RSSecondary, rtt: 0.025977990007959306>]>", "clientId": {"$oid": "6631e1d3444f54da3f0699c3"}, "serverHost": "ac-yvwh3s7-shard-00-01.3msgl70.mongodb.net", "serverPort": 27017}
+2024-05-01 06:32:00,864 DEBUG pymongo.command Thread-2 : {"clientId": {"$oid": "6631e1d3444f54da3f0699c3"}, "message": "Command started", "command": "{\"find\": \"orders\", \"lsid\": {\"id\": {\"$binary\": {\"base64\": \"b0diQ4YTQaSLBUhKFpWTwA==\", \"subType\": \"04\"}}}, \"$clusterTime\": {\"clusterTime\": {\"$timestamp\": {\"t\": 1714545120, \"i\": 11}}, \"signature\": {\"hash\": {\"$binary\": {\"base64\": \"X2P0Cdkx1VhAM1kPRPG7uJT/XBs=\", \"subType\": \"00\"}}, \"keyId\": 7299148863439372290}}, \"$db\": \"order_management\"}", "commandName": "find", "databaseName": "order_management", "requestId": 783368690, "operationId": 783368690, "driverConnectionId": 1, "serverConnectionId": 233071, "serverHost": "ac-yvwh3s7-shard-00-01.3msgl70.mongodb.net", "serverPort": 27017}
+2024-05-01 06:32:00,894 DEBUG pymongo.command Thread-2 : {"clientId": {"$oid": "6631e1d3444f54da3f0699c3"}, "message": "Command succeeded", "durationMS": 30.755000000000003, "reply": "{\"cursor\": {\"firstBatch\": [{\"_id\": {\"$oid\": \"6631da4c6de2f33ecbd3bd28\"}, \"order_id\": \"1001\", \"customer_id\": \"501\", \"items\": [{\"item_id\": \"101\", \"quantity\": 2, \"price\": 25.5}, {\"item_id\": \"105\", \"quantity\": 1, \"price\": 5.75}], \"total\": 56.75, \"date\": \"2024-04-15\", \"status\": \"Shipped\"}, {\"_id\": {\"$oid\": \"6631da4c6de2f33ecbd3bd29\"}, \"order_id\": \"1002\", \"customer_id\": \"502\", \"items\": [{\"item_id\": \"103\", \"quantity\": 1, \"price\": 15.0}], \"total\": 15.0, \"date\": \"2024-04-16\", \"status\": \"Pending\"}], \"ns\": \"order_management.orders\"}, \"ok\": 1.0, \"$clusterTime\": {\"clusterTime\": {\"$timestamp\": {\"t\": 1714545120, \"i\": 13}}, \"signature\": {\"hash\": {\"$binary\": {\"base64\": \"X2P0Cdkx1VhAM1kPRPG7uJT/XBs=\", \"subType\": \"00\"}}, \"keyId\": 7299148863439372290}}, \"operationTime\": {\"$timestamp\": {\"t\": 1714545120, \"i\": 13}}}", "commandName": "find", "databaseName": "order_management", "requestId": 783368690, "operationId": 783368690, "driverConnectionId": 1, "serverConnectionId": 233071, "serverHost": "ac-yvwh3s7-shard-00-01.3msgl70.mongodb.net", "serverPort": 27017}
+2024-05-01 06:32:00,905 INFO werkzeug Thread-2 : 10.89.0.35 - - [01/May/2024 06:32:00] "GET /api/orders HTTP/1.1" 200 -
+2024-05-01 06:32:02,242 DEBUG pymongo.serverSelection Thread-3 : {"message": "Server selection started", "selector": "Primary()", "operation": "find", "topologyDescription": "<TopologyDescription id: 6631e1d3444f54da3f0699c3, topology_type: ReplicaSetWithPrimary, servers: [<ServerDescription ('ac-yvwh3s7-shard-00-00.3msgl70.mongodb.net', 27017) server_type: RSSecondary, rtt: 0.048585231008473784>, <ServerDescription ('ac-yvwh3s7-shard-00-01.3msgl70.mongodb.net', 27017) server_type: RSPrimary, rtt: 0.02510719899146352>, <ServerDescription ('ac-yvwh3s7-shard-00-02.3msgl70.mongodb.net', 27017) server_type: RSSecondary, rtt: 0.025977990007959306>]>", "clientId": {"$oid": "6631e1d3444f54da3f0699c3"}}
+2024-05-01 06:32:02,245 DEBUG pymongo.serverSelection Thread-3 : {"message": "Server selection succeeded", "selector": "Primary()", "operation": "find", "topologyDescription": "<TopologyDescription id: 6631e1d3444f54da3f0699c3, topology_type: ReplicaSetWithPrimary, servers: [<ServerDescription ('ac-yvwh3s7-shard-00-00.3msgl70.mongodb.net', 27017) server_type: RSSecondary, rtt: 0.048585231008473784>, <ServerDescription ('ac-yvwh3s7-shard-00-01.3msgl70.mongodb.net', 27017) server_type: RSPrimary, rtt: 0.02510719899146352>, <ServerDescription ('ac-yvwh3s7-shard-00-02.3msgl70.mongodb.net', 27017) server_type: RSSecondary, rtt: 0.025977990007959306>]>", "clientId": {"$oid": "6631e1d3444f54da3f0699c3"}, "serverHost": "ac-yvwh3s7-shard-00-01.3msgl70.mongodb.net", "serverPort": 27017}
+2024-05-01 06:32:02,249 DEBUG pymongo.command Thread-3 : {"clientId": {"$oid": "6631e1d3444f54da3f0699c3"}, "message": "Command started", "command": "{\"find\": \"orders\", \"lsid\": {\"id\": {\"$binary\": {\"base64\": \"b0diQ4YTQaSLBUhKFpWTwA==\", \"subType\": \"04\"}}}, \"$clusterTime\": {\"clusterTime\": {\"$timestamp\": {\"t\": 1714545120, \"i\": 13}}, \"signature\": {\"hash\": {\"$binary\": {\"base64\": \"X2P0Cdkx1VhAM1kPRPG7uJT/XBs=\", \"subType\": \"00\"}}, \"keyId\": 7299148863439372290}}, \"$db\": \"order_management\"}", "commandName": "find", "databaseName": "order_management", "requestId": 1102520059, "operationId": 1102520059, "driverConnectionId": 1, "serverConnectionId": 233071, "serverHost": "ac-yvwh3s7-shard-00-01.3msgl70.mongodb.net", "serverPort": 27017}
+2024-05-01 06:32:02,278 DEBUG pymongo.command Thread-3 : {"clientId": {"$oid": "6631e1d3444f54da3f0699c3"}, "message": "Command succeeded", "durationMS": 29.743, "reply": "{\"cursor\": {\"firstBatch\": [{\"_id\": {\"$oid\": \"6631da4c6de2f33ecbd3bd28\"}, \"order_id\": \"1001\", \"customer_id\": \"501\", \"items\": [{\"item_id\": \"101\", \"quantity\": 2, \"price\": 25.5}, {\"item_id\": \"105\", \"quantity\": 1, \"price\": 5.75}], \"total\": 56.75, \"date\": \"2024-04-15\", \"status\": \"Shipped\"}, {\"_id\": {\"$oid\": \"6631da4c6de2f33ecbd3bd29\"}, \"order_id\": \"1002\", \"customer_id\": \"502\", \"items\": [{\"item_id\": \"103\", \"quantity\": 1, \"price\": 15.0}], \"total\": 15.0, \"date\": \"2024-04-16\", \"status\": \"Pending\"}], \"ns\": \"order_management.orders\"}, \"ok\": 1.0, \"$clusterTime\": {\"clusterTime\": {\"$timestamp\": {\"t\": 1714545122, \"i\": 2}}, \"signature\": {\"hash\": {\"$binary\": {\"base64\": \"QPsShgQc9mr79bnlCNubQbRnG94=\", \"subType\": \"00\"}}, \"keyId\": 7299148863439372290}}, \"operationTime\": {\"$timestamp\": {\"t\": 1714545122, \"i\": 2}}}", "commandName": "find", "databaseName": "order_management", "requestId": 1102520059, "operationId": 1102520059, "driverConnectionId": 1, "serverConnectionId": 233071, "serverHost": "ac-yvwh3s7-shard-00-01.3msgl70.mongodb.net", "serverPort": 27017}
+2024-05-01 06:32:02,287 INFO werkzeug Thread-3 : 10.89.0.35 - - [01/May/2024 06:32:02] "GET /api/orders HTTP/1.1" 200 -
+2024-05-01 07:20:35,524 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://10.89.0.3:5001
+2024-05-01 07:20:35,526 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2024-05-01 07:21:35,179 DEBUG pymongo.serverSelection Thread-1 : {"message": "Server selection started", "selector": "Primary()", "operation": "find", "topologyDescription": "<TopologyDescription id: 6631ed4318c13932e2c810a8, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-yvwh3s7-shard-00-00.3msgl70.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-yvwh3s7-shard-00-01.3msgl70.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-yvwh3s7-shard-00-02.3msgl70.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6631ed4318c13932e2c810a8"}}
+2024-05-01 07:21:35,185 INFO pymongo.serverSelection Thread-1 : {"message": "Waiting for suitable server to become available", "selector": "Primary()", "operation": "find", "topologyDescription": "<TopologyDescription id: 6631ed4318c13932e2c810a8, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-yvwh3s7-shard-00-00.3msgl70.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-yvwh3s7-shard-00-01.3msgl70.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-yvwh3s7-shard-00-02.3msgl70.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6631ed4318c13932e2c810a8"}, "remainingTimeMS": 29}
+2024-05-01 07:21:35,425 DEBUG pymongo.serverSelection Thread-1 : {"message": "Server selection succeeded", "selector": "Primary()", "operation": "find", "topologyDescription": "<TopologyDescription id: 6631ed4318c13932e2c810a8, topology_type: ReplicaSetWithPrimary, servers: [<ServerDescription ('ac-yvwh3s7-shard-00-00.3msgl70.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-yvwh3s7-shard-00-01.3msgl70.mongodb.net', 27017) server_type: RSPrimary, rtt: 0.026490602999984958>, <ServerDescription ('ac-yvwh3s7-shard-00-02.3msgl70.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6631ed4318c13932e2c810a8"}, "serverHost": "ac-yvwh3s7-shard-00-01.3msgl70.mongodb.net", "serverPort": 27017}
+2024-05-01 07:21:35,634 DEBUG pymongo.command Thread-1 : {"clientId": {"$oid": "6631ed4318c13932e2c810a8"}, "message": "Command started", "command": "{\"find\": \"orders\", \"lsid\": {\"id\": {\"$binary\": {\"base64\": \"RduEm506Q/CJDu2wqCbFYw==\", \"subType\": \"04\"}}}, \"$clusterTime\": {\"clusterTime\": {\"$timestamp\": {\"t\": 1714548095, \"i\": 3}}, \"signature\": {\"hash\": {\"$binary\": {\"base64\": \"TRUZb82MZ33vpxg/ybmEqOMyeoQ=\", \"subType\": \"00\"}}, \"keyId\": 7299148863439372290}}, \"$db\": \"order_management\"}", "commandName": "find", "databaseName": "order_management", "requestId": 783368690, "operationId": 783368690, "driverConnectionId": 1, "serverConnectionId": 233685, "serverHost": "ac-yvwh3s7-shard-00-01.3msgl70.mongodb.net", "serverPort": 27017}
+2024-05-01 07:21:35,659 DEBUG pymongo.command Thread-1 : {"clientId": {"$oid": "6631ed4318c13932e2c810a8"}, "message": "Command succeeded", "durationMS": 25.833, "reply": "{\"cursor\": {\"firstBatch\": [{\"_id\": {\"$oid\": \"6631da4c6de2f33ecbd3bd28\"}, \"order_id\": \"1001\", \"customer_id\": \"501\", \"items\": [{\"item_id\": \"101\", \"quantity\": 2, \"price\": 25.5}, {\"item_id\": \"105\", \"quantity\": 1, \"price\": 5.75}], \"total\": 56.75, \"date\": \"2024-04-15\", \"status\": \"Shipped\"}, {\"_id\": {\"$oid\": \"6631da4c6de2f33ecbd3bd29\"}, \"order_id\": \"1002\", \"customer_id\": \"502\", \"items\": [{\"item_id\": \"103\", \"quantity\": 1, \"price\": 15.0}], \"total\": 15.0, \"date\": \"2024-04-16\", \"status\": \"Pending\"}], \"ns\": \"order_management.orders\"}, \"ok\": 1.0, \"$clusterTime\": {\"clusterTime\": {\"$timestamp\": {\"t\": 1714548095, \"i\": 7}}, \"signature\": {\"hash\": {\"$binary\": {\"base64\": \"TRUZb82MZ33vpxg/ybmEqOMyeoQ=\", \"subType\": \"00\"}}, \"keyId\": 7299148863439372290}}, \"operationTime\": {\"$timestamp\": {\"t\": 1714548095, \"i\": 7}}}", "commandName": "find", "databaseName": "order_management", "requestId": 783368690, "operationId": 783368690, "driverConnectionId": 1, "serverConnectionId": 233685, "serverHost": "ac-yvwh3s7-shard-00-01.3msgl70.mongodb.net", "serverPort": 27017}
+2024-05-01 07:21:35,668 INFO werkzeug Thread-1 : 10.89.0.3 - - [01/May/2024 07:21:35] "GET /api/orders HTTP/1.1" 200 -

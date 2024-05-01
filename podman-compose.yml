@@ -7,23 +7,16 @@ services:
     volumes:
       - ./frontend:/app
     command: npm run serve
+
   backend:
     build: ./backend
     ports:
       - "5001:5001"
     volumes:
       - ./backend:/app
+    environment:
+      - MONGO_USER
+      - MONGO_PASSWORD
+      - MONGO_HOST
+      - MONGO_DBNAME
     command: flask run --host=0.0.0.0 --port=5001
-  mongodb:
-    image: mongo
-    ports:
-      - "27017:27017"
-    volumes:
-      - mongodb_data:/data/db
-    security_opt:
-      - label=disable
-    user: "root"
-
-volumes:
-  mongodb_data:
-    driver: local

@@ -1,3 +1,4 @@
+pymongo[srv]
 Flask-PyMongo>=2.3.0
 Flask-CORS
 flask-restx
