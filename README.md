@@ -22,7 +22,7 @@ OrdaSys is built using the following technologies:
 Before you can run OrdaSys, make sure you have the following installed:
 - Podman (or Docker)
 - Python 3.8+
-- Node.js 14.x+
+- Node.js 14.x+ (Bun)
 - MongoDB
 
 ## MongoDB setup locally and anywhere else
