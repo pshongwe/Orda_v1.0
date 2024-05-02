@@ -16,7 +16,7 @@ export default {
   },
   methods: {
     fetchData() {
-      axios.get('http://localhost:5001/api/data')
+      axios.get('http://localhost:5001/api/orders')
         .then(response => {
           this.message = response.data.message;
         })

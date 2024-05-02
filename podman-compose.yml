@@ -3,20 +3,20 @@ services:
   frontend:
     build: ./frontend
     ports:
-      - "8081:8081"
+      - "8082:8082"
     volumes:
       - ./frontend:/app
-    command: npm run serve
+    command: bun run serve  # Updated to use bun
 
   backend:
     build: ./backend
     ports:
-      - "5001:5001"
+      - "5000:5000"
     volumes:
       - ./backend:/app
     environment:
-      - MONGO_USER
-      - MONGO_PASSWORD
-      - MONGO_HOST
-      - MONGO_DBNAME
-    command: flask run --host=0.0.0.0 --port=5001
+      - MONGO_USER=${MONGO_USER}  # Ensure these are picked up from the host environment
+      - MONGO_PASSWORD=${MONGO_PASSWORD}
+      - MONGO_HOST=${MONGO_HOST}
+      - MONGO_DBNAME=${MONGO_DBNAME}
+    command: flask run --host=0.0.0.0 --port=5000
