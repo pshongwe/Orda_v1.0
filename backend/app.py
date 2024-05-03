@@ -82,6 +82,77 @@ class OrderList(Resource):
         new_order = mongo.db.orders.find_one({'order_id': order_id})
 
         return new_order, 201
+    
+@api.route('/api/orders/<string:order_id>')
+class Order(Resource):
+    
+    @api.doc('get_order')
+    @api.marshal_with(order_model)
+    def get(self, order_id):
+        '''Get details of a specific order'''
+        order = mongo.db.orders.find_one({'order_id': order_id})
+        if not order:
+            return {'message': 'Order not found'}, 404
+        return order
+    
+    @api.doc('update_order')
+    @api.expect(order_model)
+    @api.marshal_with(order_model)
+    def put(self, order_id):
+        '''Update details of a specific order'''
+        data = api.payload
+        if not data:
+            return {'message': 'No data provided'}, 400
+        
+        # Update the order in the database
+        updated_order = mongo.db.orders.find_one_and_update(
+            {'order_id': order_id},
+            {'$set': data},
+            return_document=True
+        )
+        if not updated_order:
+            return {'message': 'Order not found'}, 404
+        return updated_order
+    
+    @api.doc('delete_order')
+    def delete(self, order_id):
+        '''Delete a specific order'''
+        result = mongo.db.orders.delete_one({'order_id': order_id})
+        if result.deleted_count == 0:
+            return {'message': 'Order not found'}, 404
+        return {'message': 'Order deleted successfully'}
+    
+@api.route('/api/orders/<string:order_id>/status')
+class OrderStatus(Resource):
+    
+    @api.doc('get_order_status')
+    def get(self, order_id):
+        '''Get the current status of a specific order'''
+        order = mongo.db.orders.find_one({'order_id': order_id})
+        if not order:
+            return {'message': 'Order not found'}, 404
+        return {'status': order['status']}
+    
+    @api.doc('update_order_status')
+    @api.expect(api.model('StatusUpdate', {
+        'status': fields.String(required=True, description='New status of the order')
+    }))
+    def put(self, order_id):
+        '''Upadate the status of a specific order'''
+        data = api.payload
+        if not data:
+            return {'message': 'No data provided'}, 400
+        
+        # Update the status of the order in the database
+        updated_order = mongo.db.orders.find_one_and_update(
+            {'order_id': order_id},
+            {'$set': {'status': data['status']}},
+            return_document=True
+        )
+        if not updated_order:
+            return {'message': 'Order not found'}, 404
+        return updated_order
+    
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
