@@ -51,6 +51,19 @@ post_model = api.model('Order', {
     'status': fields.String(required=True, description='Status of the order')
 })
 
+order_model = api.model('Order', {
+    'order_id': fields.String(description='The order unique identifier', required=True),
+    'customer_id': fields.String(description='Customer identifier', required=True),
+    'items': fields.List(fields.Nested(api.model('Item', {
+        'item_id': fields.String(required=True, description='Item identifier'),
+        'quantity': fields.Integer(required=True, description='Quantity of the item'),
+        'price': fields.Float(required=True, description='Price of the item')
+    })), required=True, description='List of items'),
+    'total': fields.Float(required=True, description='Total price of the order'),
+    'date': fields.String(required=True, description='Date of the order'),
+    'status': fields.String(required=True, description='Status of the order')
+})
+
 @api.route('/api/orders')
 class OrderList(Resource):
     
