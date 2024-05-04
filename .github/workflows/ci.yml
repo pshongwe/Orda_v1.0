@@ -26,32 +26,24 @@ jobs:
       run: |
         sudo pip install podman-compose
 
-    - name: Setup CNI Plugins
+    - name: Configure CNI Network
       run: |
-        sudo mkdir -p /etc/cni/net.d/
         echo -e '{
-          "cniVersion": "0.4.0",
+          "cniVersion": "0.4.0",  # Ensure this version matches the supported version by your CNI plugins
           "name": "orda_v10_default",
-          "plugins": [
-            {
-              "type": "bridge",
-              "bridge": "podman_cni_bridge",
-              "isGateway": true,
-              "ipMasq": true,
-              "ipam": {
-                "type": "host-local",
-                "subnet": "10.88.0.0/16",
-                "routes": [{"dst": "0.0.0.0/0"}]
-              }
-            },
-            {
-              "type": "portmap",
-              "capabilities": {
-                "portMappings": true
-              }
-            }
-          ]
-        }' | sudo tee /etc/cni/net.d/87-podman-bridge.conflist
+          "type": "bridge",
+          "bridge": "cni0",
+          "isGateway": true,
+          "ipMasq": true,
+          "ipam": {
+            "type": "host-local",
+            "subnet": "192.168.100.0/24",
+            "routes": [{"dst": "0.0.0.0/0"}]
+          }
+        }' | sudo tee /etc/cni/net.d/87-orda_v10_default.conflist
+
+    - name: Log in to Docker Hub
+      run: echo ${{ secrets.DOCKER_PASSWORD }} | podman login docker.io -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
 
     - name: Create or Verify Network
       run: |
