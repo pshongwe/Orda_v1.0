@@ -1,4 +1,5 @@
 import os
+import uuid
 import logging
 from flask import Flask
 from flask_pymongo import PyMongo
@@ -177,6 +178,13 @@ class OrderStatus(Resource):
 
 @api.route('/api/customers')
 class CustomerList(Resource):
+    @api.doc('list_customers')
+    @api.marshal_list_with(customer_model)
+    def get(self):
+        '''List all customers'''
+        customers = mongo.db.customers.find({}, {'password': 0})  # Exclude passwords from the query result
+        return list(customers)
+
     @api.doc('register_customer')
     @api.expect(customer_model)
     @api.marshal_with(customer_model, code=201)
