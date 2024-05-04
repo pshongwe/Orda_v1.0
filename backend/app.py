@@ -222,7 +222,8 @@ class Customer(Resource):
             return {'message': 'Customer not found'}, 404
         del customer['password']  # Remove password from response for security
         return customer
-    
+    @api.doc('update_customer')
+    @api.marshal_with(customer_model)
     def put(self, customer_id):
         '''Update details of a specific customer'''
         data = api.payload
@@ -239,7 +240,7 @@ class Customer(Resource):
             return {'message': 'Customer not found'}, 404
         del updated_customer['password']  # Remove password from response for security
         return updated_customer
-    
+    @api.doc('delete_customer')
     def delete(self, customer_id):
         '''Delete a specific customer'''
         result = mongo.db.customers.delete_one({'customer_id': customer_id})
