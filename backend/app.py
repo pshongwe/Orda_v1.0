@@ -221,6 +221,30 @@ class Customer(Resource):
             return {'message': 'Customer not found'}, 404
         del customer['password']  # Remove password from response for security
         return customer
+    
+    def put(self, customer_id):
+        '''Update details of a specific customer'''
+        data = api.payload
+        if not data:
+            return {'message': 'No data provided'}, 400
+
+        # Update the customer in the database
+        updated_customer = mongo.db.customers.find_one_and_update(
+            {'customer_id': customer_id},
+            {'$set': data},
+            return_document=True
+        )
+        if not updated_customer:
+            return {'message': 'Customer not found'}, 404
+        del updated_customer['password']  # Remove password from response for security
+        return updated_customer
+    
+    def delete(self, customer_id):
+        '''Delete a specific customer'''
+        result = mongo.db.customers.delete_one({'customer_id': customer_id})
+        if result.deleted_count == 0:
+            return {'message': 'Customer not found'}, 404
+        return {'message': 'Customer deleted successfully'}
 
 
 if __name__ == '__main__':
