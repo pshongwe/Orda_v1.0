@@ -22,7 +22,6 @@ jobs:
         sudo apt-get update
         sudo apt-get -y install podman
 
-
     - name: Install Podman-Compose
       run: |
         sudo pip install podman-compose
@@ -53,7 +52,10 @@ jobs:
             }
           ]
         }' | sudo tee /etc/cni/net.d/87-podman-bridge.conflist
-      
+
+    - name: Debug Podman Network
+      run: podman --log-level=debug network inspect orda_v10_default
+  
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
