@@ -21,10 +21,6 @@ jobs:
         curl -L "https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/Release.key" | sudo apt-key add -
         sudo apt-get update
         sudo apt-get -y install podman
-
-    - name: Install Podman-Compose
-      run: |
-        sudo pip install podman-compose
   
     - name: Set up Python
       uses: actions/setup-python@v2
@@ -38,10 +34,10 @@ jobs:
 
     - name: Build and run with Podman Compose
       run: |
-        # podman-compose build
-        # podman-compose up -d
+        podman build --arch amd64 -f ./backend/Dockerfile -t orda_v10_backend ./backend
+        podman tag localhost/orda_v10_backend:1.0 ${{ secrets.DOCKER_USERNAME }}/orda_v10_backend:1.0
         echo ${{ secrets.ORDA_TOKEN }} | podman login docker.io --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
-        podman build --arch x86 -t localhost/orda_v10_backend:1.0 ./backend
+        podman build --arch amd64 -t localhost/orda_v10_backend:1.0 ./backend
         podman tag localhost/orda_v10_backend:1.0 ${{ secrets.DOCKER_USERNAME }}/orda_v10_backend:1.0
         podman push ${{ secrets.DOCKER_USERNAME }}/orda_v10_backend:1.0
         
