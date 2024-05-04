@@ -41,3 +41,10 @@ jobs:
     - name: Run tests (optional)
       run: |
         echo "Run tests here"
+
+    - name: Deploy (if needed)
+      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      run: |
+        # Add deployment commands here if necessary
+        echo "Deploying......"
+        podman push ${{ secrets.DOCKER_USERNAME }}/orda_v10_backend:${{ secrets.DEVELOPMENT }}
