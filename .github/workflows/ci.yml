@@ -3,8 +3,6 @@ name: Continuous Integration and Deployment with Podman
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
   build-and-deploy:
