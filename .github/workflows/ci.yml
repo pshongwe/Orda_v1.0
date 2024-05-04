@@ -25,36 +25,6 @@ jobs:
     - name: Install Podman-Compose
       run: |
         sudo pip install podman-compose
-
-    - name: Configure CNI Network
-      run: |
-        echo -e '{
-          "cniVersion": "0.4.0",  # Ensure this version matches the supported version by your CNI plugins
-          "name": "orda_v10_default",
-          "type": "bridge",
-          "bridge": "cni0",
-          "isGateway": true,
-          "ipMasq": true,
-          "ipam": {
-            "type": "host-local",
-            "subnet": "192.168.100.0/24",
-            "routes": [{"dst": "0.0.0.0/0"}]
-          }
-        }' | sudo tee /etc/cni/net.d/87-orda_v10_default.conflist
-
-    - name: Log in to Docker Hub
-      run: echo ${{ secrets.ORDA_TOKEN }} | podman login docker.io -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-
-    - name: Create or Verify Network
-      run: |
-        podman network exists orda_v10_default || podman network create orda_v10_default
-
-    - name: Run Container with Network
-      run: |
-        podman run --network orda_v10_default --name mycontainer myimage
-
-    - name: Debug Podman Network
-      run: podman --log-level=debug network inspect orda_v10_default
   
     - name: Set up Python
       uses: actions/setup-python@v2
@@ -68,8 +38,8 @@ jobs:
 
     - name: Build and run with Podman Compose
       run: |
-        podman-compose build
-        podman-compose up -d
+        # podman-compose build
+        # podman-compose up -d
         echo ${{ secrets.ORDA_TOKEN }} | podman login docker.io --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
         podman build --arch x86 -t localhost/orda_v10_backend:1.0 ./backend
         podman tag localhost/orda_v10_backend:1.0 ${{ secrets.DOCKER_USERNAME }}/orda_v10_backend:1.0
