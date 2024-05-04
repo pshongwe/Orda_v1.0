@@ -46,13 +46,6 @@ $ `source ~/.bashrc`
 
 depending on the shell you're using.
 
-# Preparing for Render Deployment
-
-$ `podman build --arch amd64 -t localhost/orda_v10_backend:1.0 ./backend` \
-$ `podman login docker.io` \
-$ `podman tag localhost/orda_v10_backend:1.0 piboman/orda_v10_backend:1.0` \
-$ `podman push piboman/orda_v10_backend:1.0`
-
 ## Run
 $ `python3 -m venv venv` \
 $ `source venv/bin/activate` \
