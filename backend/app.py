@@ -24,7 +24,7 @@ logging.basicConfig(filename='app.log', level=logging.DEBUG,
                     format='%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s')
 api = Api(app, version='1.0', title='API Documentation', description='A simple API', doc='/swagger/')
 
-# Model definition
+# Model definitions
 get_model = api.model('Order', {
     'order_id': fields.Integer(description='The order unique identifier', readonly=True),
     'customer_id': fields.String(description='Customer identifier'),
@@ -64,9 +64,17 @@ order_model = api.model('Order', {
     'status': fields.String(required=True, description='Status of the order')
 })
 
+customer_model = api.model('Customer', {
+    'customer_id': fields.String(required=True, description='The unique identifier for the customer'),
+    'name': fields.String(required=True, description='Full name of the customer'),
+    'email': fields.String(required=True, description='Email address of the customer'),
+    'password': fields.String(required=True, description='Password for the customer account'),
+    'address': fields.String(required=True, description='Physical address of the customer')
+})
+
+
 @api.route('/api/orders')
 class OrderList(Resource):
-    
     @api.doc('list_orders')
     @api.marshal_list_with(get_model)
     def get(self):
@@ -95,10 +103,10 @@ class OrderList(Resource):
         new_order = mongo.db.orders.find_one({'order_id': order_id})
 
         return new_order, 201
-    
+
+
 @api.route('/api/orders/<string:order_id>')
 class Order(Resource):
-    
     @api.doc('get_order')
     @api.marshal_with(order_model)
     def get(self, order_id):
@@ -107,7 +115,7 @@ class Order(Resource):
         if not order:
             return {'message': 'Order not found'}, 404
         return order
-    
+
     @api.doc('update_order')
     @api.expect(order_model)
     @api.marshal_with(order_model)
@@ -116,7 +124,7 @@ class Order(Resource):
         data = api.payload
         if not data:
             return {'message': 'No data provided'}, 400
-        
+
         # Update the order in the database
         updated_order = mongo.db.orders.find_one_and_update(
             {'order_id': order_id},
@@ -126,7 +134,7 @@ class Order(Resource):
         if not updated_order:
             return {'message': 'Order not found'}, 404
         return updated_order
-    
+
     @api.doc('delete_order')
     def delete(self, order_id):
         '''Delete a specific order'''
@@ -134,10 +142,10 @@ class Order(Resource):
         if result.deleted_count == 0:
             return {'message': 'Order not found'}, 404
         return {'message': 'Order deleted successfully'}
-    
+
+
 @api.route('/api/orders/<string:order_id>/status')
 class OrderStatus(Resource):
-    
     @api.doc('get_order_status')
     def get(self, order_id):
         '''Get the current status of a specific order'''
@@ -145,7 +153,7 @@ class OrderStatus(Resource):
         if not order:
             return {'message': 'Order not found'}, 404
         return {'status': order['status']}
-    
+
     @api.doc('update_order_status')
     @api.expect(api.model('StatusUpdate', {
         'status': fields.String(required=True, description='New status of the order')
@@ -155,7 +163,7 @@ class OrderStatus(Resource):
         data = api.payload
         if not data:
             return {'message': 'No data provided'}, 400
-        
+
         # Update the status of the order in the database
         updated_order = mongo.db.orders.find_one_and_update(
             {'order_id': order_id},
@@ -165,7 +173,47 @@ class OrderStatus(Resource):
         if not updated_order:
             return {'message': 'Order not found'}, 404
         return updated_order
-    
+
+
+@api.route('/api/customers')
+class CustomerList(Resource):
+    @api.doc('register_customer')
+    @api.expect(customer_model)
+    @api.marshal_with(customer_model, code=201)
+    def post(self):
+        '''Register a new customer'''
+        data = api.payload
+        if not data:
+            api.abort(400, "No data provided")
+
+        # Hash the password before storing it
+        from werkzeug.security import generate_password_hash
+        hashed_password = generate_password_hash(data['password'])
+
+        customer = {
+            'customer_id': str(uuid.uuid4()),  # Generate a new UUID for the customer
+            'name': data['name'],
+            'email': data['email'],
+            'password': hashed_password,
+            'address': data['address']
+        }
+        mongo.db.customers.insert_one(customer)
+        del customer['password']  # Remove password from response for security
+        return customer, 201
+
+
+@api.route('/api/customers/<string:customer_id>')
+class Customer(Resource):
+    @api.doc('get_customer')
+    @api.marshal_with(customer_model)
+    def get(self, customer_id):
+        '''Retrieve a specific customer by their customer ID'''
+        customer = mongo.db.customers.find_one({'customer_id': customer_id})
+        if not customer:
+            return {'message': 'Customer not found'}, 404
+        del customer['password']  # Remove password from response for security
+        return customer
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
