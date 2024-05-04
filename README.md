@@ -54,3 +54,7 @@ $ `podman-compose up`
 
 When done do the following `ctrl` + `c` then do: \
 $ `podman-compose down`
+
+## Authors:
+Hassan \
+Pibo
