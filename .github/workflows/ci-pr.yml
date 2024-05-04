@@ -1,0 +1,43 @@
+name: Continuous Integration and Deployment with Podman
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install Podman
+      run: |
+        . /etc/os-release
+        echo "deb http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/ /" | sudo tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
+        curl -L "https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/Release.key" | sudo apt-key add -
+        sudo apt-get update
+        sudo apt-get -y install podman
+  
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+
+    - name: Create and activate virtual environment
+      run: |
+        python3 -m venv venv --without-pip
+        source venv/bin/activate
+
+    - name: Build and run with Podman Compose
+      run: |
+        podman build --arch amd64 -f ./backend/Dockerfile -t orda_v10_backend ./backend
+        podman tag localhost/orda_v10_backend:latest ${{ secrets.DOCKER_USERNAME }}/orda_v10_backend:1.0
+        echo ${{ secrets.ORDA_TOKEN }} | podman login docker.io --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
+        podman build --arch amd64 -t localhost/orda_v10_backend:latest ./backend
+        podman tag localhost/orda_v10_backend:latest ${{ secrets.DOCKER_USERNAME }}/orda_v10_backend:1.0
+        
+    - name: Run tests (optional)
+      run: |
+        echo "Run tests here"
