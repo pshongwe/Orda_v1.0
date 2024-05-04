@@ -41,8 +41,9 @@ jobs:
       run: |
         podman machine init
         podman-compose build
-        podman-compose up -d 
+        podman-compose up -d
         echo ${{ secrets.ORDA_TOKEN }} | podman login docker.io --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
+        podman build --arch x86 -t localhost/orda_v10_backend:1.0 ./backend
         podman tag localhost/orda_v10_backend:1.0 ${{ secrets.DOCKER_USERNAME }}/orda_v10_backend:1.0
         podman push ${{ secrets.DOCKER_USERNAME }}/orda_v10_backend:1.0
         
