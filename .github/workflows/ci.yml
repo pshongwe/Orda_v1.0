@@ -27,6 +27,33 @@ jobs:
       run: |
         sudo pip install podman-compose
 
+    - name: Setup CNI Plugins
+      run: |
+        sudo mkdir -p /etc/cni/net.d/
+        echo -e '{
+          "cniVersion": "0.4.0",
+          "name": "orda_v10_default",
+          "plugins": [
+            {
+              "type": "bridge",
+              "bridge": "podman_cni_bridge",
+              "isGateway": true,
+              "ipMasq": true,
+              "ipam": {
+                "type": "host-local",
+                "subnet": "10.88.0.0/16",
+                "routes": [{"dst": "0.0.0.0/0"}]
+              }
+            },
+            {
+              "type": "portmap",
+              "capabilities": {
+                "portMappings": true
+              }
+            }
+          ]
+        }' | sudo tee /etc/cni/net.d/87-podman-bridge.conflist
+      
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
