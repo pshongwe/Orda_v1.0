@@ -53,6 +53,10 @@ jobs:
           ]
         }' | sudo tee /etc/cni/net.d/87-podman-bridge.conflist
 
+    - name: Create or Verify Network
+      run: |
+        podman network exists orda_v10_default || podman network create orda_v10_default
+
     - name: Debug Podman Network
       run: podman --log-level=debug network inspect orda_v10_default
   
