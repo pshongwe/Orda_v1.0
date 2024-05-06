@@ -232,10 +232,9 @@ class Customer(Resource):
     @api.marshal_with(customer_model)
     def get(self, customer_id):
         '''Retrieve a specific customer by their customer ID'''
-        customer = mongo.db.customers.find_one({'customer_id': customer_id})
+        customer = mongo.db.customers.find_one({'customer_id': customer_id }, {'password': 0})
         if not customer:
             return {'message': 'Customer not found'}, 404
-        del customer['password']  # Remove password from response for security
         return customer
     
     @api.doc('update_customer')
