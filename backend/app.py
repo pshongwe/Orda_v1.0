@@ -182,7 +182,7 @@ class OrderStatus(Resource):
         return updated_order
 
 
-@api.route('/api/customers')
+@api.route('/api/v1/customers')
 class CustomerList(Resource):
     @api.doc('list_customers')
     @api.marshal_list_with(customer_model)
@@ -216,7 +216,7 @@ class CustomerList(Resource):
         return customer, 201
 
 
-@api.route('/api/customers/<string:customer_id>')
+@api.route('/api/v1/customers/<string:customer_id>')
 class Customer(Resource):
     @api.doc('get_customer')
     @api.marshal_with(customer_model)
@@ -255,7 +255,7 @@ class Customer(Resource):
             return {'message': 'Customer not found'}, 404
         return {'message': 'Customer deleted successfully'}
     
-@api.route('/api/items')
+@api.route('/api/v1/items')
 class itemsList(Resource):
     @api.doc('get_items')
     @api.marshal_list_with(item_model)
@@ -274,7 +274,7 @@ class itemsList(Resource):
         mongo.db.items.insert_one(item)  # Insert the new item into the database
         return item, 201
     
-@api.route('/api/items/<string:item_id>')
+@api.route('/api/v1/items/<string:item_id>')
 class Item(Resource):
     @api.doc('get_item')
     @api.marshal_with(item_model)
