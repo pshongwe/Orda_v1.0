@@ -1,13 +1,13 @@
 # OrdaSys
 
 ## Introduction
-OrdaSys is an Order Management System designed to streamline and optimize the management of orders for restaurants and food service providers. It provides a comprehensive suite of tools for managing orders, inventory, and customer data, all accessible via a user-friendly web interface.
+OrdaSys is an Order Management System designed to streamline and optimize the management of orders for restaurants and food service providers. It provides a comprehensive suite of tools for managing orders, items, and customer data, all accessible via a user-friendly web interface.
 
 ## Features
 - **Order Tracking:** Track orders from placement through fulfillment.
-- **Inventory Management:** Keep tabs on stock levels, manage reorders, and update product details.
+- **items Management:** Keep tabs on stock levels, manage reorders, and update product details.
 - **Customer Management:** Maintain detailed customer profiles, order history, and preferences.
-- **Reporting:** Generate detailed reports on sales, customer orders, and inventory status.
+- **Reporting:** Generate detailed reports on sales, customer orders, and items status.
 - **Multi-user Support:** Different access levels for staff, managers, and administrators.
 
 ## Technologies

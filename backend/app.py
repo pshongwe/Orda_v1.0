@@ -73,11 +73,11 @@ customer_model = api.model('Customer', {
     'address': fields.String(required=True, description='Physical address of the customer')
 })
 
-product_model = api.model('Product', {
-    'product_id': fields.String(required=True, description='The unique identifier for the product'),
-    'name': fields.String(required=True, description='Product name'),
-    'price': fields.Float(required=True, description='Product price'),
-    'quantity': fields.Integer(required=True, description='Product quantity')
+item_model = api.model('Item', {
+    'item_id': fields.String(required=True, description='The unique identifier for the item'),
+    'name': fields.String(required=True, description='Item name'),
+    'price': fields.Float(required=True, description='Item price'),
+    'stock': fields.Integer(required=True, description='Item stock count')
 })
 
 
@@ -256,51 +256,51 @@ class Customer(Resource):
             return {'message': 'Customer not found'}, 404
         return {'message': 'Customer deleted successfully'}
     
-@api.route('/api/inventory')
-class InventoryList(Resource):
-    @api.doc('get_inventory')
-    @api.marshal_list_with(product_model)
+@api.route('/api/items')
+class itemsList(Resource):
+    @api.doc('get_items')
+    @api.marshal_list_with(item_model)
     def get(self):
-        '''Retrieve all products in the inventory'''
-        inventory = mongo.db.inventory.find()
-        return list(inventory), 200
+        '''Retrieve all items'''
+        items = mongo.db.items.find()
+        return list(items), 200
     
-    @api.doc('add_product')
-    @api.expect(product_model)
-    @api.marshal_with(product_model, code=201)
+    @api.doc('add_item')
+    @api.expect(item_model)
+    @api.marshal_with(item_model, code=201)
     def post(self):
-        '''Add a new product to the inventory'''
-        product = api.payload
-        product['product_id'] = str(uuid.uuid4())  # Generate a new UUID for the product
-        mongo.db.inventory.insert_one(product)  # Insert the new product into the database
-        return product, 201
+        '''Add a new item'''
+        item = api.payload
+        item['item_id'] = str(uuid.uuid4())  # Generate a new UUID for the item
+        mongo.db.items.insert_one(item)  # Insert the new item into the database
+        return item, 201
     
-@api.route('/api/inventory/<string:product_id>')
-class Product(Resource):
-    @api.doc('get_product')
-    @api.marshal_with(product_model)
-    def get(self, product_id):
-        '''Retrieve a specific product by its product ID'''
-        product = mongo.db.inventory.find_one({'product_id': product_id})
-        if product:
-            return product, 200
+@api.route('/api/items/<string:item_id>')
+class Item(Resource):
+    @api.doc('get_item')
+    @api.marshal_with(item_model)
+    def get(self, item_id):
+        '''Retrieve a specific item by its item ID'''
+        item = mongo.db.items.find_one({'item_id': item_id})
+        if item:
+            return item, 200
         else:
-            return {'message': 'Product not found'}, 404
+            return {'message': 'Item not found'}, 404
         
-    @api.doc('update_product')
-    @api.expect(product_model)
-    @api.marshal_with(product_model)
-    def put(self, product_id):
-        '''Update an existing product with new data'''
-        updated_product = api.payload
-        mongo.db.inventory.update_one({'product_id': product_id}, {'$set': updated_product})
-        return updated_product, 200
+    @api.doc('update_item')
+    @api.expect(item_model)
+    @api.marshal_with(item_model)
+    def put(self, item_id):
+        '''Update an existing item with new data'''
+        updated_item = api.payload
+        mongo.db.items.update_one({'item_id': item_id}, {'$set': updated_item })
+        return updated_item, 200
     
-    @api.doc('delete_product')
-    @api.response(204, 'Product deleted')
-    def delete(self, product_id):
-        '''Delete a product by its product ID'''
-        mongo.db.inventory.delete_one({'product_id': product_id})
+    @api.doc('delete_item')
+    @api.response(204, 'Item deleted')
+    def delete(self, item_id):
+        '''Delete an item by item ID'''
+        mongo.db.items.delete_one({'item_id': item_id})
         return '', 204
 
 
