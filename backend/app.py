@@ -23,12 +23,12 @@ CORS(app)
 # Configure logging
 logging.basicConfig(filename='app.log', level=logging.DEBUG,
                     format='%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s')
-api = Api(app, version='1.0', title='API Documentation', description='A simple API', doc='/swagger/')
+api = Api(app, version='1.0', title='OrdaSys API', description='OrdaSys API Documentation', doc='/swagger/')
 
 # Namespaces
-ns_customers = Namespace('customers', description='Customer operations')
-ns_items = Namespace('items', description='Item operations')
-ns_orders = Namespace('orders', description='Order operations')
+ns_customers = Namespace('Customers', description='Customer operations')
+ns_items = Namespace('Items', description='Item operations')
+ns_orders = Namespace('Orders', description='Order operations')
 
 # add namespaces
 api.add_namespace(ns_customers)
