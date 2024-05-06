@@ -26,9 +26,9 @@ logging.basicConfig(filename='app.log', level=logging.DEBUG,
 api = Api(app, version='1.0', title='OrdaSys API', description='OrdaSys API Documentation', doc='/swagger/')
 
 # Namespaces
-ns_customers = Namespace('Customers', description='Customer operations')
-ns_items = Namespace('Items', description='Item operations')
-ns_orders = Namespace('Orders', description='Order operations')
+ns_customers = Namespace('customers', description='Customer operations')
+ns_items = Namespace('items', description='Item operations')
+ns_orders = Namespace('orders', description='Order operations')
 
 # add namespaces
 api.add_namespace(ns_customers)
