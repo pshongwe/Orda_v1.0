@@ -4,7 +4,7 @@ import logging
 from flask import Flask
 from flask_pymongo import PyMongo
 from flask_cors import CORS
-from flask_restx import Api, Resource, fields
+from flask_restx import Api, Resource, fields, Namespace
 
 
 app = Flask(__name__)
@@ -23,7 +23,17 @@ CORS(app)
 # Configure logging
 logging.basicConfig(filename='app.log', level=logging.DEBUG,
                     format='%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s')
-api = Api(app, version='1.0', title='API Documentation', description='A simple API', doc='/swagger/')
+api = Api(app, version='1.0', title='OrdaSys API', description='OrdaSys API Documentation', doc='/swagger/')
+
+# Namespaces
+ns_customers = Namespace('Customers', description='Customer operations')
+ns_items = Namespace('Items', description='Item operations')
+ns_orders = Namespace('Orders', description='Order operations')
+
+# add namespaces
+api.add_namespace(ns_customers)
+api.add_namespace(ns_items)
+api.add_namespace(ns_orders)
 
 # Model definitions
 get_model = api.model('Order', {
@@ -80,7 +90,7 @@ item_model = api.model('Item', {
     'stock': fields.Integer(required=True, description='Item stock count')
 })
 
-@api.route('/api/v1/orders')
+@ns_orders.route('/api/v1/orders')
 class OrderList(Resource):
     @api.doc('list_orders')
     @api.marshal_list_with(get_model)
@@ -112,7 +122,7 @@ class OrderList(Resource):
         return new_order, 201
 
 
-@api.route('/api/v1/orders/<string:order_id>')
+@ns_orders.route('/api/v1/orders/<string:order_id>')
 class Order(Resource):
     @api.doc('get_order')
     @api.marshal_with(order_model)
@@ -151,7 +161,7 @@ class Order(Resource):
         return {'message': 'Order deleted successfully'}
 
 
-@api.route('/api/v1/orders/<string:order_id>/status')
+@ns_orders.route('/api/v1/orders/<string:order_id>/status')
 class OrderStatus(Resource):
     @api.doc('get_order_status')
     def get(self, order_id):
@@ -182,7 +192,7 @@ class OrderStatus(Resource):
         return updated_order
 
 
-@api.route('/api/v1/customers')
+@ns_customers.route('/api/v1/customers')
 class CustomerList(Resource):
     @api.doc('list_customers')
     @api.marshal_list_with(customer_model)
@@ -216,7 +226,7 @@ class CustomerList(Resource):
         return customer, 201
 
 
-@api.route('/api/v1/customers/<string:customer_id>')
+@ns_customers.route('/api/v1/customers/<string:customer_id>')
 class Customer(Resource):
     @api.doc('get_customer')
     @api.marshal_with(customer_model)
@@ -255,7 +265,7 @@ class Customer(Resource):
             return {'message': 'Customer not found'}, 404
         return {'message': 'Customer deleted successfully'}
     
-@api.route('/api/v1/items')
+@ns_items.route('/api/v1/items')
 class itemsList(Resource):
     @api.doc('get_items')
     @api.marshal_list_with(item_model)
@@ -274,7 +284,7 @@ class itemsList(Resource):
         mongo.db.items.insert_one(item)  # Insert the new item into the database
         return item, 201
     
-@api.route('/api/v1/items/<string:item_id>')
+@ns_items.route('/api/v1/items/<string:item_id>')
 class Item(Resource):
     @api.doc('get_item')
     @api.marshal_with(item_model)
