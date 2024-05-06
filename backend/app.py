@@ -73,8 +73,14 @@ customer_model = api.model('Customer', {
     'address': fields.String(required=True, description='Physical address of the customer')
 })
 
+item_model = api.model('Item', {
+    'item_id': fields.String(required=True, description='The unique identifier for the item'),
+    'name': fields.String(required=True, description='Item name'),
+    'price': fields.Float(required=True, description='Item price'),
+    'stock': fields.Integer(required=True, description='Item stock count')
+})
 
-@api.route('/api/orders')
+@api.route('/api/v1/orders')
 class OrderList(Resource):
     @api.doc('list_orders')
     @api.marshal_list_with(get_model)
@@ -106,7 +112,7 @@ class OrderList(Resource):
         return new_order, 201
 
 
-@api.route('/api/orders/<string:order_id>')
+@api.route('/api/v1/orders/<string:order_id>')
 class Order(Resource):
     @api.doc('get_order')
     @api.marshal_with(order_model)
@@ -145,7 +151,7 @@ class Order(Resource):
         return {'message': 'Order deleted successfully'}
 
 
-@api.route('/api/orders/<string:order_id>/status')
+@api.route('/api/v1/orders/<string:order_id>/status')
 class OrderStatus(Resource):
     @api.doc('get_order_status')
     def get(self, order_id):
@@ -222,6 +228,8 @@ class Customer(Resource):
         del customer['password']  # Remove password from response for security
         return customer
     
+    @api.doc('update_customer')
+    @api.marshal_with(customer_model)
     def put(self, customer_id):
         '''Update details of a specific customer'''
         data = api.payload
@@ -239,12 +247,60 @@ class Customer(Resource):
         del updated_customer['password']  # Remove password from response for security
         return updated_customer
     
+    @api.doc('delete_customer')
     def delete(self, customer_id):
         '''Delete a specific customer'''
         result = mongo.db.customers.delete_one({'customer_id': customer_id})
         if result.deleted_count == 0:
             return {'message': 'Customer not found'}, 404
         return {'message': 'Customer deleted successfully'}
+    
+@api.route('/api/items')
+class itemsList(Resource):
+    @api.doc('get_items')
+    @api.marshal_list_with(item_model)
+    def get(self):
+        '''Retrieve all items'''
+        items = mongo.db.items.find()
+        return list(items), 200
+    
+    @api.doc('add_item')
+    @api.expect(item_model)
+    @api.marshal_with(item_model, code=201)
+    def post(self):
+        '''Add a new item'''
+        item = api.payload
+        item['item_id'] = str(uuid.uuid4())  # Generate a new UUID for the item
+        mongo.db.items.insert_one(item)  # Insert the new item into the database
+        return item, 201
+    
+@api.route('/api/items/<string:item_id>')
+class Item(Resource):
+    @api.doc('get_item')
+    @api.marshal_with(item_model)
+    def get(self, item_id):
+        '''Retrieve a specific item by its item ID'''
+        item = mongo.db.items.find_one({'item_id': item_id})
+        if item:
+            return item, 200
+        else:
+            return {'message': 'Item not found'}, 404
+        
+    @api.doc('update_item')
+    @api.expect(item_model)
+    @api.marshal_with(item_model)
+    def put(self, item_id):
+        '''Update an existing item with new data'''
+        updated_item = api.payload
+        mongo.db.items.update_one({'item_id': item_id}, {'$set': updated_item })
+        return updated_item, 200
+    
+    @api.doc('delete_item')
+    @api.response(204, 'Item deleted')
+    def delete(self, item_id):
+        '''Delete an item by item ID'''
+        mongo.db.items.delete_one({'item_id': item_id})
+        return '', 204
 
 
 if __name__ == '__main__':
