@@ -27,7 +27,7 @@ api = Api(app, version='1.0', title='API Documentation', description='A simple A
 
 # Model definitions
 get_model = api.model('Order', {
-    'order_id': fields.Integer(description='The order unique identifier', readonly=True),
+    'order_id': fields.String(description='The order unique identifier', readonly=True),
     'customer_id': fields.String(description='Customer identifier'),
     'items': fields.List(fields.Nested(api.model('Item', {
         'item_id': fields.String(required=True, description='Item identifier'),
