@@ -80,8 +80,7 @@ item_model = api.model('Item', {
     'stock': fields.Integer(required=True, description='Item stock count')
 })
 
-
-@api.route('/api/orders')
+@api.route('/api/v1/orders')
 class OrderList(Resource):
     @api.doc('list_orders')
     @api.marshal_list_with(get_model)
@@ -113,7 +112,7 @@ class OrderList(Resource):
         return new_order, 201
 
 
-@api.route('/api/orders/<string:order_id>')
+@api.route('/api/v1/orders/<string:order_id>')
 class Order(Resource):
     @api.doc('get_order')
     @api.marshal_with(order_model)
@@ -152,7 +151,7 @@ class Order(Resource):
         return {'message': 'Order deleted successfully'}
 
 
-@api.route('/api/orders/<string:order_id>/status')
+@api.route('/api/v1/orders/<string:order_id>/status')
 class OrderStatus(Resource):
     @api.doc('get_order_status')
     def get(self, order_id):
