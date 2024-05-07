@@ -3,3 +3,4 @@ backend/__pycache__/*
 tests/__pycache__/*
 frontend/qemu*
 venv/*
+.DS_Store
