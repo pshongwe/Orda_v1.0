@@ -36,7 +36,7 @@ api.add_namespace(ns_items)
 api.add_namespace(ns_orders)
 
 # Model definitions
-get_model = api.model('Order', {
+get_order_model = api.model('Get Order', {
     'order_id': fields.String(description='The order unique identifier', readonly=True),
     'customer_id': fields.String(description='Customer identifier'),
     'items': fields.List(fields.Nested(api.model('Item', {
@@ -49,8 +49,7 @@ get_model = api.model('Order', {
     'status': fields.String(required=True, description='Status of the order')
 })
 
-post_model = api.model('Order', {
-    'order_id': fields.String(required=True, description='The order unique identifier'),
+post_order_model = api.model('Post Order', {
     'customer_id': fields.String(required=True, description='Customer identifier'),
     'items': fields.List(fields.Nested(api.model('Item', {
         'item_id': fields.String(required=True, description='Item identifier'),
@@ -62,29 +61,28 @@ post_model = api.model('Order', {
     'status': fields.String(required=True, description='Status of the order')
 })
 
-order_model = api.model('Order', {
-    'order_id': fields.String(description='The order unique identifier', required=True),
-    'customer_id': fields.String(description='Customer identifier', required=True),
-    'items': fields.List(fields.Nested(api.model('Item', {
-        'item_id': fields.String(required=True, description='Item identifier'),
-        'quantity': fields.Integer(required=True, description='Quantity of the item'),
-        'price': fields.Float(required=True, description='Price of the item')
-    })), required=True, description='List of items'),
-    'total': fields.Float(required=True, description='Total price of the order'),
-    'date': fields.String(required=True, description='Date of the order'),
-    'status': fields.String(required=True, description='Status of the order')
-})
-
-customer_model = api.model('Customer', {
-    'customer_id': fields.String(required=True, description='The unique identifier for the customer'),
+post_customer_model = api.model('Post Customer', {
     'name': fields.String(required=True, description='Full name of the customer'),
     'email': fields.String(required=True, description='Email address of the customer'),
     'password': fields.String(required=True, description='Password for the customer account'),
     'address': fields.String(required=True, description='Physical address of the customer')
 })
 
-item_model = api.model('Item', {
+get_customer_model = api.model('Get Customer', {
+    'customer_id': fields.String(required=True, description='The unique identifier for the customer'),
+    'name': fields.String(required=True, description='Full name of the customer'),
+    'email': fields.String(required=True, description='Email address of the customer'),
+    'address': fields.String(required=True, description='Physical address of the customer')
+})
+
+get_item_model = api.model('Get Item', {
     'item_id': fields.String(required=True, description='The unique identifier for the item'),
+    'name': fields.String(required=True, description='Item name'),
+    'price': fields.Float(required=True, description='Item price'),
+    'stock': fields.Integer(required=True, description='Item stock count')
+})
+
+post_item_model = api.model('Post Item', {
     'name': fields.String(required=True, description='Item name'),
     'price': fields.Float(required=True, description='Item price'),
     'stock': fields.Integer(required=True, description='Item stock count')
@@ -93,15 +91,15 @@ item_model = api.model('Item', {
 @ns_orders.route('/')
 class OrderList(Resource):
     @api.doc('list_orders')
-    @api.marshal_list_with(get_model)
+    @api.marshal_list_with(get_order_model)
     def get(self):
         '''List all orders'''
         orders = mongo.db.orders.find()
         return list(orders)
 
     @api.doc('create_order')
-    @api.expect(post_model)
-    @api.marshal_with(get_model, code=201)  # Ensure this uses a model that includes the order_id
+    @api.expect(post_order_model)
+    @api.marshal_with(get_order_model, code=201)  # Ensure this uses a model that includes the order_id
     def post(self):
         '''Create a new order'''
         data = api.payload
@@ -125,7 +123,7 @@ class OrderList(Resource):
 @ns_orders.route('/<string:order_id>')
 class Order(Resource):
     @api.doc('get_order')
-    @api.marshal_with(order_model)
+    @api.marshal_with(get_order_model)
     def get(self, order_id):
         '''Get details of a specific order'''
         order = mongo.db.orders.find_one({'order_id': order_id})
@@ -134,8 +132,8 @@ class Order(Resource):
         return order
 
     @api.doc('update_order')
-    @api.expect(order_model)
-    @api.marshal_with(order_model)
+    @api.expect(post_order_model)
+    @api.marshal_with(get_order_model)
     def put(self, order_id):
         '''Update details of a specific order'''
         data = api.payload
@@ -195,15 +193,15 @@ class OrderStatus(Resource):
 @ns_customers.route('/')
 class CustomerList(Resource):
     @api.doc('list_customers')
-    @api.marshal_list_with(customer_model)
+    @api.marshal_list_with(get_customer_model)
     def get(self):
         '''List all customers'''
         customers = mongo.db.customers.find({}, {'password': 0})  # Exclude passwords from the query result
         return list(customers)
 
     @api.doc('register_customer')
-    @api.expect(customer_model)
-    @api.marshal_with(customer_model, code=201)
+    @api.expect(post_customer_model)
+    @api.marshal_with(get_customer_model, code=201)
     def post(self):
         '''Register a new customer'''
         data = api.payload
@@ -229,7 +227,7 @@ class CustomerList(Resource):
 @ns_customers.route('/<string:customer_id>')
 class Customer(Resource):
     @api.doc('get_customer')
-    @api.marshal_with(customer_model)
+    @api.marshal_with(get_customer_model)
     def get(self, customer_id):
         '''Retrieve a specific customer by their customer ID'''
         customer = mongo.db.customers.find_one({'customer_id': customer_id }, {'password': 0})
@@ -238,7 +236,7 @@ class Customer(Resource):
         return customer
     
     @api.doc('update_customer')
-    @api.marshal_with(customer_model)
+    @api.marshal_with(get_customer_model)
     def put(self, customer_id):
         '''Update details of a specific customer'''
         data = api.payload
@@ -267,15 +265,15 @@ class Customer(Resource):
 @ns_items.route('/')
 class itemsList(Resource):
     @api.doc('get_items')
-    @api.marshal_list_with(item_model)
+    @api.marshal_list_with(get_item_model)
     def get(self):
         '''Retrieve all items'''
         items = mongo.db.items.find()
         return list(items), 200
     
     @api.doc('add_item')
-    @api.expect(item_model)
-    @api.marshal_with(item_model, code=201)
+    @api.expect(post_item_model)
+    @api.marshal_with(get_item_model, code=201)
     def post(self):
         '''Add a new item'''
         item = api.payload
@@ -286,7 +284,7 @@ class itemsList(Resource):
 @ns_items.route('/<string:item_id>')
 class Item(Resource):
     @api.doc('get_item')
-    @api.marshal_with(item_model)
+    @api.marshal_with(get_item_model)
     def get(self, item_id):
         '''Retrieve a specific item by its item ID'''
         item = mongo.db.items.find_one({'item_id': item_id})
@@ -296,8 +294,8 @@ class Item(Resource):
             return {'message': 'Item not found'}, 404
         
     @api.doc('update_item')
-    @api.expect(item_model)
-    @api.marshal_with(item_model)
+    @api.expect(post_item_model)
+    @api.marshal_with(get_item_model)
     def put(self, item_id):
         '''Update an existing item with new data'''
         updated_item = api.payload
