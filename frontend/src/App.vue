@@ -1,15 +1,17 @@
 <template>
   <img src="@/assets/logo.png" alt="OrdaSys Logo" class="logo" @mouseover="hover = true" @mouseleave="hover = false">
-  <Restaurant/>
+  <OrdaOrders />
 </template>
 
 <script>
-import Restaurant from './components/OrdaRestaurant.vue'
+import OrdaOrders from './components/OrdaOrders.vue';
+// import Restaurant from './components/OrdaRestaurant.vue'
 
 export default {
   name: 'App',
   components: {
-    Restaurant
+    // Restaurant,
+    OrdaOrders
   }
 }
 </script>
@@ -17,7 +19,8 @@ export default {
 <style>
 .logo {
   transition: transform 0.5s ease;
-  transform: scale(1);
+  transform: scale(0.5);
+  opacity: 0.5;
 }
 .logo:hover {
   transform: scale(1.1); /* Scale up the logo on hover */

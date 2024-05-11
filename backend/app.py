@@ -1,13 +1,15 @@
 import os
 import uuid
 import logging
+from functools import wraps
+from flask import request, send_from_directory, jsonify
 from flask import Flask
 from flask_pymongo import PyMongo
 from flask_cors import CORS
 from flask_restx import Api, Resource, fields, Namespace
 
-
-app = Flask(__name__)
+app = Flask(__name__, static_folder='../frontend/dist', static_url_path='')
+app.config['DEBUG'] = True
 
 # Retrieve environment variables
 MONGO_USER = os.environ.get('MONGO_USER')
@@ -29,11 +31,13 @@ api = Api(app, version='1.0', title='OrdaSys API', description='OrdaSys API Docu
 ns_customers = Namespace('customers', path='/api/v1/customers', description='Customer operations')
 ns_items = Namespace('items', path='/api/v1/items', description='Item operations')
 ns_orders = Namespace('orders', path='/api/v1/orders', description='Order operations')
+ns_keys = Namespace('keys', path='/api/v1/keys', description="Keys operations")
 
 # add namespaces
 api.add_namespace(ns_customers)
 api.add_namespace(ns_items)
 api.add_namespace(ns_orders)
+api.add_namespace(ns_keys)
 
 # Model definitions
 get_order_model = api.model('Get Order', {
@@ -41,6 +45,7 @@ get_order_model = api.model('Get Order', {
     'customer_id': fields.String(description='Customer identifier'),
     'items': fields.List(fields.Nested(api.model('Item', {
         'item_id': fields.String(required=True, description='Item identifier'),
+        'name': fields.String(required=True, description='Item name'),
         'quantity': fields.Integer(required=True, description='Quantity of the item'),
         'price': fields.Float(required=True, description='Price of the item')
     })), required=True, description='List of items'),
@@ -53,6 +58,7 @@ post_order_model = api.model('Post Order', {
     'customer_id': fields.String(required=True, description='Customer identifier'),
     'items': fields.List(fields.Nested(api.model('Item', {
         'item_id': fields.String(required=True, description='Item identifier'),
+        'name': fields.String(required=True, description='Item name'),
         'quantity': fields.Integer(required=True, description='Quantity of the item'),
         'price': fields.Float(required=True, description='Price of the item')
     })), required=True, description='List of items'),
@@ -88,10 +94,47 @@ post_item_model = api.model('Post Item', {
     'stock': fields.Integer(required=True, description='Item stock count')
 })
 
+get_key_model = api.model('Create API Key', {
+    'active': fields.Boolean(required=True, description='active key?'),
+    'key_id': fields.String(required=True, description='Key id'),
+    'key': fields.String(required=True, description='API Key')
+})
+
+def require_api_key(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        api_key = request.headers.get('Authorization')
+        if not api_key:
+            return jsonify({'error': 'API key is missing'}), 401
+        
+        key_data = mongo.db.api_keys.find_one({'key': api_key, 'active': True})
+        if not key_data:
+            return jsonify({'error': 'Invalid or inactive API key'}), 403
+        
+        return f(*args, **kwargs)
+    
+    return decorated_function
+
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def catch_all(path):
+    """
+    Route to serve the index.html from the Vue.js build directory on all non-api routes.
+    Flask needs to serve the `index.html` for any route not caught by the other `app.route()` calls,
+    because the Vue frontend handles routing on the client side.
+    """
+    if path and not path.startswith('api/'):
+        # If path does not refer to an API function and does exist as a file, serve it
+        if os.path.exists(os.path.join(app.static_folder, path)):
+            return send_from_directory(app.static_folder, path)
+    # Serve index.html by default
+    return send_from_directory(app.static_folder, 'index.html')
+
 @ns_orders.route('/')
 class OrderList(Resource):
     @api.doc('list_orders')
     @api.marshal_list_with(get_order_model)
+    # @require_api_key
     def get(self):
         '''List all orders'''
         orders = mongo.db.orders.find()
@@ -308,6 +351,18 @@ class Item(Resource):
         '''Delete an item by item ID'''
         mongo.db.items.delete_one({'item_id': item_id})
         return '', 204
+
+@ns_keys.route('/generate')
+class Key(Resource):
+    @api.marshal_with(get_key_model)
+    def post(self):
+        new_key = {
+            'key_id': str(uuid.uuid4()),
+            'customer_id': '502',
+            'active': True
+        }
+        mongo.db.api_keys.insert_one(new_key)
+        return {'message': 'API key generated', 'key': new_key['key']}
 
 
 if __name__ == '__main__':

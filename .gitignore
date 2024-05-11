@@ -4,3 +4,4 @@ tests/__pycache__/*
 frontend/qemu*
 venv/*
 .DS_Store
+.vscode/
