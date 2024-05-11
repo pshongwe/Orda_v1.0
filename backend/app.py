@@ -368,8 +368,9 @@ class Key(Resource):
 def enforce_https_in_redirects(response):
     # Check if the response is a redirect and the scheme is HTTP
     if response.status_code in (301, 302, 303, 307, 308) and request.url.startswith('http://'):
-        # Replace 'http://' with 'https://' in the Location header
-        response.headers['Location'] = response.headers['Location'].replace('http://', 'https://', 1)
+        if not request.url.startswith('http://localhost'):
+            # Replace 'http://' with 'https://' in the Location header
+            response.headers['Location'] = response.headers['Location'].replace('http://', 'https://', 1)
     return response
 
 
