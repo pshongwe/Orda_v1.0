@@ -1,6 +1,0 @@
-2024-05-11 19:11:44,039 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on http://127.0.0.1:5000
-2024-05-11 19:11:44,040 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
-2024-05-11 19:11:44,042 INFO werkzeug MainThread :  * Restarting with stat
-2024-05-11 19:11:44,232 WARNING werkzeug MainThread :  * Debugger is active!
-2024-05-11 19:11:44,241 INFO werkzeug MainThread :  * Debugger PIN: 688-482-637
