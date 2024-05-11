@@ -48,7 +48,7 @@ export default {
       
       const url = new URL(process.env.VUE_APP_ORDERS_API);
       // Force HTTPS by replacing the protocol if necessary
-      url.protocol = 'https:';
+      // url.protocol = 'https:';
 
       fetch(url.toString())
         .then(response => {
