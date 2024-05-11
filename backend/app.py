@@ -364,6 +364,16 @@ class Key(Resource):
         mongo.db.api_keys.insert_one(new_key)
         return {'message': 'API key generated', 'key': new_key['key']}
 
+from flask import request, redirect, url_for
+
+@app.after_request
+def enforce_https_in_redirects(response):
+    # Check if the response is a redirect and the scheme is HTTP
+    if response.status_code in (301, 302, 303, 307, 308) and request.url.startswith('http://'):
+        # Replace 'http://' with 'https://' in the Location header
+        response.headers['Location'] = response.headers['Location'].replace('http://', 'https://', 1)
+    return response
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
