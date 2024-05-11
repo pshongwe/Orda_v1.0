@@ -1,22 +1,19 @@
 version: '3.8'
 services:
-  frontend:
-    build: ./frontend
-    ports:
-      - "8082:8082"
-    volumes:
-      - ./frontend:/app
-    command: bun run serve  # Updated to use bun
-
   backend:
-    build: ./backend
+    build:
+      context: .  # This should be the root of your project where the Dockerfile is located
+      dockerfile: Dockerfile  # Specify if your Dockerfile is named differently
     ports:
       - "5000:5000"
     volumes:
-      - ./backend:/app
+      - ./backend:/app  # This mounts your backend directory to the /app in the container
     environment:
-      - MONGO_USER=${MONGO_USER}  # Ensure these are picked up from the host environment
+      - MONGO_USER=${MONGO_USER}  # Ensure these are picked up from the host or .env file
       - MONGO_PASSWORD=${MONGO_PASSWORD}
       - MONGO_HOST=${MONGO_HOST}
       - MONGO_DBNAME=${MONGO_DBNAME}
+      - FLASK_APP=app.py
+      - FLASK_ENV=development  # Ensures debug mode is on
+      - FLASK_DEBUG=1
     command: flask run --host=0.0.0.0 --port=5000
