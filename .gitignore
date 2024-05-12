@@ -5,3 +5,4 @@ frontend/qemu*
 venv/*
 .DS_Store
 .vscode/
+app.log
