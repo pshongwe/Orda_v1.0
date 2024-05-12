@@ -375,4 +375,4 @@ def enforce_https_in_redirects(response):
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(debug=False, port=5000)
