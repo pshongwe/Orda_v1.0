@@ -33,10 +33,9 @@ jobs:
     - name: Build and run with Podman Compose
       run: |
         podman build --arch amd64 -f ./Dockerfile -t orda_v10_backend ./
-        podman tag localhost/orda_v10_backend:latest ${{ secrets.DOCKER_USERNAME }}/orda_v10_backend:${{ secrets.PRODUCTION }}
+        podman tag localhost/orda_v10_backend:latest ${{ secrets.DOCKER_USERNAME }}/orda_v10_backend:${{ secrets.DEVELOPMENT }}
         echo ${{ secrets.ORDA_TOKEN }} | podman login docker.io --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
-        podman build --arch amd64 -t localhost/orda_v10_backend:latest ./
-        podman tag localhost/orda_v10_backend:latest ${{ secrets.DOCKER_USERNAME }}/orda_v10_backend:${{ secrets.PRODUCTION }}
+        podman tag localhost/orda_v10_backend:latest ${{ secrets.DOCKER_USERNAME }}/orda_v10_backend:${{ secrets.DEVELOPMENT }}
         
         
     - name: Run tests (optional)
@@ -48,5 +47,5 @@ jobs:
       run: |
         # Add deployment commands here if necessary
         echo "Deploying......"
-        podman push ${{ secrets.DOCKER_USERNAME }}/orda_v10_backend:${{ secrets.PRODUCTION }}
+        podman push ${{ secrets.DOCKER_USERNAME }}/orda_v10_backend:${{ secrets.DEVELOPMENT }}
 
