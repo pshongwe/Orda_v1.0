@@ -35,14 +35,15 @@ jobs:
         podman build --arch amd64 -f ./Dockerfile -t orda_v10_backend ./
         podman tag localhost/orda_v10_backend:latest ${{ secrets.DOCKER_USERNAME }}/orda_v10_backend:${{ secrets.DEVELOPMENT }}
         echo ${{ secrets.ORDA_TOKEN }} | podman login docker.io --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
-        podman build --arch amd64 -t localhost/orda_v10_backend:latest ./
         podman tag localhost/orda_v10_backend:latest ${{ secrets.DOCKER_USERNAME }}/orda_v10_backend:${{ secrets.DEVELOPMENT }}
+        
         
     - name: Run tests (optional)
       run: |
-        echo "Run tests here" 
+        echo "Run tests here"
 
     - name: Deploy (if needed)
+      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       run: |
         # Add deployment commands here if necessary
         echo "Deploying......"
