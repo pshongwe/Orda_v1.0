@@ -7,7 +7,7 @@ from flask import Flask
 from flask_pymongo import PyMongo
 from flask_cors import CORS
 from flask_restx import Api, Resource, fields, Namespace
-from models import get_order_model, post_order_model, post_customer_model, get_customer_model, get_item_model, post_item_model
+from .models import get_order_model, post_order_model, post_customer_model, get_customer_model, get_item_model, post_item_model
 
 app = Flask(__name__, static_folder='../frontend/dist', static_url_path='')
 app.config['DEBUG'] = True
