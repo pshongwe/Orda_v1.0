@@ -1,0 +1,13 @@
+[2024-05-15 21:17:26 +0200] [26075] [INFO] Starting gunicorn 20.1.0
+[2024-05-15 21:17:26 +0200] [26075] [INFO] Listening at: http://127.0.0.1:5000 (26075)
+[2024-05-15 21:17:26 +0200] [26075] [INFO] Using worker: sync
+[2024-05-15 21:17:26 +0200] [26076] [INFO] Booting worker with pid: 26076
+[2024-05-15 21:17:26 +0200] [26077] [INFO] Booting worker with pid: 26077
+[2024-05-15 21:17:26 +0200] [26078] [INFO] Booting worker with pid: 26078
+[2024-05-15 21:17:26 +0200] [26079] [INFO] Booting worker with pid: 26079
+[2024-05-15 21:18:37 +0200] [26075] [INFO] Handling signal: int
+[2024-05-15 21:18:37 +0200] [26078] [INFO] Worker exiting (pid: 26078)
+[2024-05-15 21:18:37 +0200] [26076] [INFO] Worker exiting (pid: 26076)
+[2024-05-15 21:18:37 +0200] [26079] [INFO] Worker exiting (pid: 26079)
+[2024-05-15 21:18:37 +0200] [26077] [INFO] Worker exiting (pid: 26077)
+[2024-05-15 21:18:38 +0200] [26075] [INFO] Shutting down: Master
