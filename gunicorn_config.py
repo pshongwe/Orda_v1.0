@@ -8,10 +8,5 @@ bind = '127.0.0.1:5000'
 app = 'app:app'
 
 # Logging configuration (optional)
-<<<<<<< HEAD
-errorlog = '/Orda_v1.0/error.log'
-accesslog = '/Orda_v1.0/access.log'
-=======
 errorlog = 'error.log'
 accesslog = 'access.log'
->>>>>>> af43c8d89f40be00b1ff4b68625f9443d93a7fd7
