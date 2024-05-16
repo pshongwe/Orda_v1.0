@@ -13,8 +13,7 @@ COPY backend /app
 EXPOSE 5000
 
 # Set environment variables
-ENV FLASK_APP=app.py
-ENV FLASK_RUN_HOST=0.0.0.0
+ENV GUNICORN_CMD_ARGS="--bind=0.0.0.0:5000 --workers=4 app:app"
 
-# Run the Flask application
-CMD ["flask", "run"]
+# Run Gunicorn to serve Flask application
+CMD ["gunicorn", "app:app"]
