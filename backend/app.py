@@ -2,11 +2,12 @@ import os
 import uuid
 import logging
 from functools import wraps
-from flask import request, send_from_directory, jsonify
+from flask import Flask, request, jsonify
 from flask import Flask
 from flask_pymongo import PyMongo
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 from flask_restx import Api, Resource, fields, Namespace
+from bson import ObjectId
 
 app = Flask(__name__, static_folder='../frontend/dist', static_url_path='')
 app.config['DEBUG'] = True
@@ -22,6 +23,7 @@ app.config["MONGO_URI"] = f"mongodb+srv://{MONGO_USER}:{MONGO_PASSWORD}@{MONGO_H
 
 mongo = PyMongo(app)
 CORS(app)
+
 # Configure logging
 logging.basicConfig(filename='app.log', level=logging.DEBUG,
                     format='%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s')
@@ -100,6 +102,16 @@ get_key_model = api.model('Create API Key', {
     'key': fields.String(required=True, description='API Key')
 })
 
+# Helper function to convert MongoDB documents to JSON-serializable format
+def convert_to_json(data):
+    if isinstance(data, list):
+        return [convert_to_json(item) for item in data]
+    if isinstance(data, dict):
+        return {k: convert_to_json(v) for k, v in data.items()}
+    if isinstance(data, ObjectId):
+        return str(data)
+    return data
+
 def require_api_key(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
@@ -115,23 +127,13 @@ def require_api_key(f):
     
     return decorated_function
 
-@app.route('/', defaults={'path': ''})
-@app.route('/<path:path>')
-def catch_all(path):
-    """
-    Route to serve the index.html from the Vue.js build directory on all non-api routes.
-    Flask needs to serve the `index.html` for any route not caught by the other `app.route()` calls,
-    because the Vue frontend handles routing on the client side.
-    """
-    if path and not path.startswith('api/'):
-        # If path does not refer to an API function and does exist as a file, serve it
-        if os.path.exists(os.path.join(app.static_folder, path)):
-            return send_from_directory(app.static_folder, path)
-    # Serve index.html by default
-    return send_from_directory(app.static_folder, 'index.html')
-
 @ns_orders.route('/')
+@ns_orders.route('')
 class OrderList(Resource):
+    @cross_origin(headers=['Content-Type'])
+    def options(self):
+        return jsonify(success=True)
+
     @api.doc('list_orders')
     @api.marshal_list_with(get_order_model)
     # @require_api_key
@@ -141,11 +143,12 @@ class OrderList(Resource):
         return list(orders)
 
     @api.doc('create_order')
+    @cross_origin(headers=['Content-Type'])
     @api.expect(post_order_model)
-    @api.marshal_with(get_order_model, code=201)  # Ensure this uses a model that includes the order_id
+    @ns_orders.marshal_with(get_order_model, code=201)  # Ensure this uses a model that includes the order_id
     def post(self):
         '''Create a new order'''
-        data = api.payload
+        data = request.json
         if not data:
             api.abort(400, "No data provided")
 
@@ -160,7 +163,8 @@ class OrderList(Resource):
         mongo.db.orders.insert_one(order)
         new_order = mongo.db.orders.find_one({'order_id': order_id})
 
-        return new_order, 201
+        # Ensure ObjectId fields are converted to strings
+        return convert_to_json(new_order), 201
 
 
 @ns_orders.route('/<string:order_id>')
@@ -234,6 +238,7 @@ class OrderStatus(Resource):
 
 
 @ns_customers.route('/')
+@ns_customers.route('')
 class CustomerList(Resource):
     @api.doc('list_customers')
     @api.marshal_list_with(get_customer_model)
@@ -306,6 +311,7 @@ class Customer(Resource):
         return {'message': 'Customer deleted successfully'}
     
 @ns_items.route('/')
+@ns_items.route('')
 class itemsList(Resource):
     @api.doc('get_items')
     @api.marshal_list_with(get_item_model)
@@ -372,6 +378,22 @@ def enforce_https_in_redirects(response):
             # Replace 'http://' with 'https://' in the Location header
             response.headers['Location'] = response.headers['Location'].replace('http://', 'https://', 1)
     return response
+
+@app.after_request
+def add_cors_headers(response):
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
+    response.headers['Access-Control-Allow-Methods'] = 'GET,POST,PUT,DELETE,OPTIONS'
+    return response
+
+@app.after_request
+def add_security_headers(response):
+    response.headers['Referrer-Policy'] = 'no-referrer'
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    response.headers['Access-Control-Allow-Headers'] = 'Content-Type,Authorization'
+    response.headers['Access-Control-Allow-Methods'] = 'GET,POST,PUT,DELETE,OPTIONS'
+    return response
+
 
 
 if __name__ == '__main__':

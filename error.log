@@ -1,13 +1,561 @@
-[2024-05-15 21:17:26 +0200] [26075] [INFO] Starting gunicorn 20.1.0
-[2024-05-15 21:17:26 +0200] [26075] [INFO] Listening at: http://127.0.0.1:5000 (26075)
-[2024-05-15 21:17:26 +0200] [26075] [INFO] Using worker: sync
-[2024-05-15 21:17:26 +0200] [26076] [INFO] Booting worker with pid: 26076
-[2024-05-15 21:17:26 +0200] [26077] [INFO] Booting worker with pid: 26077
-[2024-05-15 21:17:26 +0200] [26078] [INFO] Booting worker with pid: 26078
-[2024-05-15 21:17:26 +0200] [26079] [INFO] Booting worker with pid: 26079
-[2024-05-15 21:18:37 +0200] [26075] [INFO] Handling signal: int
-[2024-05-15 21:18:37 +0200] [26078] [INFO] Worker exiting (pid: 26078)
-[2024-05-15 21:18:37 +0200] [26076] [INFO] Worker exiting (pid: 26076)
-[2024-05-15 21:18:37 +0200] [26079] [INFO] Worker exiting (pid: 26079)
-[2024-05-15 21:18:37 +0200] [26077] [INFO] Worker exiting (pid: 26077)
-[2024-05-15 21:18:38 +0200] [26075] [INFO] Shutting down: Master
+[2024-05-20 21:23:15 +0200] [33772] [INFO] Handling signal: int
+[2024-05-20 21:23:15 +0200] [33776] [INFO] Worker exiting (pid: 33776)
+[2024-05-20 21:23:15 +0200] [33775] [INFO] Worker exiting (pid: 33775)
+[2024-05-20 21:23:15 +0200] [33773] [INFO] Worker exiting (pid: 33773)
+[2024-05-20 21:23:15 +0200] [33774] [INFO] Worker exiting (pid: 33774)
+[2024-05-20 21:23:16 +0200] [33772] [INFO] Shutting down: Master
+[2024-05-20 21:23:16 +0200] [33904] [INFO] Starting gunicorn 20.1.0
+[2024-05-20 21:23:16 +0200] [33904] [INFO] Listening at: http://127.0.0.1:5000 (33904)
+[2024-05-20 21:23:16 +0200] [33904] [INFO] Using worker: sync
+[2024-05-20 21:23:16 +0200] [33905] [INFO] Booting worker with pid: 33905
+[2024-05-20 21:23:16 +0200] [33906] [INFO] Booting worker with pid: 33906
+[2024-05-20 21:23:17 +0200] [33907] [INFO] Booting worker with pid: 33907
+[2024-05-20 21:23:17 +0200] [33908] [INFO] Booting worker with pid: 33908
+[2024-05-20 21:28:22 +0200] [33904] [INFO] Handling signal: int
+[2024-05-20 21:28:23 +0200] [33905] [INFO] Worker exiting (pid: 33905)
+[2024-05-20 21:28:23 +0200] [33908] [INFO] Worker exiting (pid: 33908)
+[2024-05-20 21:28:23 +0200] [33907] [INFO] Worker exiting (pid: 33907)
+[2024-05-20 21:28:23 +0200] [33906] [INFO] Worker exiting (pid: 33906)
+[2024-05-20 21:28:23 +0200] [33904] [INFO] Shutting down: Master
+[2024-05-20 21:28:24 +0200] [34085] [INFO] Starting gunicorn 20.1.0
+[2024-05-20 21:28:24 +0200] [34085] [INFO] Listening at: http://127.0.0.1:5000 (34085)
+[2024-05-20 21:28:24 +0200] [34085] [INFO] Using worker: sync
+[2024-05-20 21:28:24 +0200] [34086] [INFO] Booting worker with pid: 34086
+[2024-05-20 21:28:24 +0200] [34087] [INFO] Booting worker with pid: 34087
+[2024-05-20 21:28:24 +0200] [34088] [INFO] Booting worker with pid: 34088
+[2024-05-20 21:28:24 +0200] [34089] [INFO] Booting worker with pid: 34089
+[2024-05-20 21:29:44 +0200] [34085] [INFO] Handling signal: int
+[2024-05-20 21:29:44 +0200] [34089] [INFO] Worker exiting (pid: 34089)
+[2024-05-20 21:29:44 +0200] [34086] [INFO] Worker exiting (pid: 34086)
+[2024-05-20 21:29:44 +0200] [34087] [INFO] Worker exiting (pid: 34087)
+[2024-05-20 21:29:44 +0200] [34088] [INFO] Worker exiting (pid: 34088)
+[2024-05-20 21:29:44 +0200] [34085] [INFO] Shutting down: Master
+[2024-05-20 21:29:45 +0200] [34127] [INFO] Starting gunicorn 20.1.0
+[2024-05-20 21:29:45 +0200] [34127] [INFO] Listening at: http://127.0.0.1:5000 (34127)
+[2024-05-20 21:29:45 +0200] [34127] [INFO] Using worker: sync
+[2024-05-20 21:29:45 +0200] [34128] [INFO] Booting worker with pid: 34128
+[2024-05-20 21:29:45 +0200] [34129] [INFO] Booting worker with pid: 34129
+[2024-05-20 21:29:45 +0200] [34130] [INFO] Booting worker with pid: 34130
+[2024-05-20 21:29:45 +0200] [34131] [INFO] Booting worker with pid: 34131
+[2024-05-20 21:31:11 +0200] [34127] [INFO] Handling signal: int
+[2024-05-20 21:31:11 +0200] [34130] [INFO] Worker exiting (pid: 34130)
+[2024-05-20 21:31:11 +0200] [34131] [INFO] Worker exiting (pid: 34131)
+[2024-05-20 21:31:11 +0200] [34129] [INFO] Worker exiting (pid: 34129)
+[2024-05-20 21:31:11 +0200] [34128] [INFO] Worker exiting (pid: 34128)
+[2024-05-20 21:31:12 +0200] [34127] [INFO] Shutting down: Master
+[2024-05-20 21:31:12 +0200] [34163] [INFO] Starting gunicorn 20.1.0
+[2024-05-20 21:31:12 +0200] [34163] [INFO] Listening at: http://127.0.0.1:5000 (34163)
+[2024-05-20 21:31:12 +0200] [34163] [INFO] Using worker: sync
+[2024-05-20 21:31:12 +0200] [34164] [INFO] Booting worker with pid: 34164
+[2024-05-20 21:31:12 +0200] [34165] [INFO] Booting worker with pid: 34165
+[2024-05-20 21:31:12 +0200] [34166] [INFO] Booting worker with pid: 34166
+[2024-05-20 21:31:12 +0200] [34167] [INFO] Booting worker with pid: 34167
+[2024-05-20 21:32:36 +0200] [34163] [INFO] Handling signal: int
+[2024-05-20 21:32:36 +0200] [34166] [INFO] Worker exiting (pid: 34166)
+[2024-05-20 21:32:36 +0200] [34167] [INFO] Worker exiting (pid: 34167)
+[2024-05-20 21:32:36 +0200] [34165] [INFO] Worker exiting (pid: 34165)
+[2024-05-20 21:32:36 +0200] [34164] [INFO] Worker exiting (pid: 34164)
+[2024-05-20 21:32:36 +0200] [34163] [INFO] Shutting down: Master
+[2024-05-20 21:32:37 +0200] [34209] [INFO] Starting gunicorn 20.1.0
+[2024-05-20 21:32:37 +0200] [34209] [INFO] Listening at: http://127.0.0.1:5000 (34209)
+[2024-05-20 21:32:37 +0200] [34209] [INFO] Using worker: sync
+[2024-05-20 21:32:37 +0200] [34212] [INFO] Booting worker with pid: 34212
+[2024-05-20 21:32:37 +0200] [34213] [INFO] Booting worker with pid: 34213
+[2024-05-20 21:32:37 +0200] [34214] [INFO] Booting worker with pid: 34214
+[2024-05-20 21:32:37 +0200] [34215] [INFO] Booting worker with pid: 34215
+[2024-05-20 21:33:07 +0200] [34209] [INFO] Handling signal: int
+[2024-05-20 21:33:07 +0200] [34215] [INFO] Worker exiting (pid: 34215)
+[2024-05-20 21:33:07 +0200] [34212] [INFO] Worker exiting (pid: 34212)
+[2024-05-20 21:33:07 +0200] [34213] [INFO] Worker exiting (pid: 34213)
+[2024-05-20 21:33:07 +0200] [34214] [INFO] Worker exiting (pid: 34214)
+[2024-05-20 21:33:07 +0200] [34209] [INFO] Shutting down: Master
+[2024-05-20 21:34:48 +0200] [34263] [INFO] Starting gunicorn 20.1.0
+[2024-05-20 21:34:48 +0200] [34263] [INFO] Listening at: http://127.0.0.1:5000 (34263)
+[2024-05-20 21:34:48 +0200] [34263] [INFO] Using worker: sync
+[2024-05-20 21:34:48 +0200] [34264] [INFO] Booting worker with pid: 34264
+[2024-05-20 21:34:48 +0200] [34265] [INFO] Booting worker with pid: 34265
+[2024-05-20 21:34:48 +0200] [34266] [INFO] Booting worker with pid: 34266
+[2024-05-20 21:34:48 +0200] [34267] [INFO] Booting worker with pid: 34267
+[2024-05-20 21:35:10 +0200] [34263] [INFO] Handling signal: int
+[2024-05-20 21:35:11 +0200] [34267] [INFO] Worker exiting (pid: 34267)
+[2024-05-20 21:35:11 +0200] [34264] [INFO] Worker exiting (pid: 34264)
+[2024-05-20 21:35:11 +0200] [34265] [INFO] Worker exiting (pid: 34265)
+[2024-05-20 21:35:11 +0200] [34266] [INFO] Worker exiting (pid: 34266)
+[2024-05-20 21:35:11 +0200] [34263] [INFO] Shutting down: Master
+[2024-05-20 21:35:11 +0200] [34282] [INFO] Starting gunicorn 20.1.0
+[2024-05-20 21:35:11 +0200] [34282] [INFO] Listening at: http://127.0.0.1:5000 (34282)
+[2024-05-20 21:35:11 +0200] [34282] [INFO] Using worker: sync
+[2024-05-20 21:35:11 +0200] [34283] [INFO] Booting worker with pid: 34283
+[2024-05-20 21:35:11 +0200] [34284] [INFO] Booting worker with pid: 34284
+[2024-05-20 21:35:11 +0200] [34285] [INFO] Booting worker with pid: 34285
+[2024-05-20 21:35:11 +0200] [34286] [INFO] Booting worker with pid: 34286
+[2024-05-20 21:35:11 +0200] [34283] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+                ^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+                    ^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.11/3.11.6/Frameworks/Python.framework/Versions/3.11/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/Users/pshongwe/ALX/Orda_v1.0/backend/app.py", line 119, in <module>
+    @ns_orders.route('/', methods=['GET', 'POST', 'OPTIONS'])
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask_restx/namespace.py", line 107, in wrapper
+    self.add_resource(cls, *urls, **kwargs)
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask_restx/namespace.py", line 95, in add_resource
+    api.register_resource(self, resource, *ns_urls, **kwargs)
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask_restx/api.py", line 330, in register_resource
+    self._register_view(self.app, resource, namespace, *urls, **kwargs)
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask_restx/api.py", line 359, in _register_view
+    resource.as_view(
+    ^^^^^^^^^^^^^^^^
+AttributeError: 'function' object has no attribute 'as_view'
+[2024-05-20 21:35:11 +0200] [34284] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+                ^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+                    ^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.11/3.11.6/Frameworks/Python.framework/Versions/3.11/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/Users/pshongwe/ALX/Orda_v1.0/backend/app.py", line 119, in <module>
+    @ns_orders.route('/', methods=['GET', 'POST', 'OPTIONS'])
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask_restx/namespace.py", line 107, in wrapper
+    self.add_resource(cls, *urls, **kwargs)
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask_restx/namespace.py", line 95, in add_resource
+    api.register_resource(self, resource, *ns_urls, **kwargs)
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask_restx/api.py", line 330, in register_resource
+    self._register_view(self.app, resource, namespace, *urls, **kwargs)
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask_restx/api.py", line 359, in _register_view
+    resource.as_view(
+    ^^^^^^^^^^^^^^^^
+AttributeError: 'function' object has no attribute 'as_view'
+[2024-05-20 21:35:11 +0200] [34283] [INFO] Worker exiting (pid: 34283)
+[2024-05-20 21:35:11 +0200] [34284] [INFO] Worker exiting (pid: 34284)
+[2024-05-20 21:35:11 +0200] [34285] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+                ^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+                    ^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.11/3.11.6/Frameworks/Python.framework/Versions/3.11/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/Users/pshongwe/ALX/Orda_v1.0/backend/app.py", line 119, in <module>
+    @ns_orders.route('/', methods=['GET', 'POST', 'OPTIONS'])
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask_restx/namespace.py", line 107, in wrapper
+    self.add_resource(cls, *urls, **kwargs)
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask_restx/namespace.py", line 95, in add_resource
+    api.register_resource(self, resource, *ns_urls, **kwargs)
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask_restx/api.py", line 330, in register_resource
+    self._register_view(self.app, resource, namespace, *urls, **kwargs)
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask_restx/api.py", line 359, in _register_view
+    resource.as_view(
+    ^^^^^^^^^^^^^^^^
+AttributeError: 'function' object has no attribute 'as_view'
+[2024-05-20 21:35:11 +0200] [34285] [INFO] Worker exiting (pid: 34285)
+[2024-05-20 21:35:11 +0200] [34282] [WARNING] Worker with pid 34285 was terminated due to signal 15
+[2024-05-20 21:35:11 +0200] [34286] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+                ^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+                    ^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.11/3.11.6/Frameworks/Python.framework/Versions/3.11/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/Users/pshongwe/ALX/Orda_v1.0/backend/app.py", line 119, in <module>
+    @ns_orders.route('/', methods=['GET', 'POST', 'OPTIONS'])
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask_restx/namespace.py", line 107, in wrapper
+    self.add_resource(cls, *urls, **kwargs)
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask_restx/namespace.py", line 95, in add_resource
+    api.register_resource(self, resource, *ns_urls, **kwargs)
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask_restx/api.py", line 330, in register_resource
+    self._register_view(self.app, resource, namespace, *urls, **kwargs)
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask_restx/api.py", line 359, in _register_view
+    resource.as_view(
+    ^^^^^^^^^^^^^^^^
+AttributeError: 'function' object has no attribute 'as_view'
+[2024-05-20 21:35:11 +0200] [34286] [INFO] Worker exiting (pid: 34286)
+[2024-05-20 21:35:40 +0200] [34304] [INFO] Starting gunicorn 20.1.0
+[2024-05-20 21:35:40 +0200] [34304] [INFO] Listening at: http://127.0.0.1:5000 (34304)
+[2024-05-20 21:35:40 +0200] [34304] [INFO] Using worker: sync
+[2024-05-20 21:35:40 +0200] [34305] [INFO] Booting worker with pid: 34305
+[2024-05-20 21:35:40 +0200] [34306] [INFO] Booting worker with pid: 34306
+[2024-05-20 21:35:40 +0200] [34307] [INFO] Booting worker with pid: 34307
+[2024-05-20 21:35:40 +0200] [34308] [INFO] Booting worker with pid: 34308
+[2024-05-20 21:37:25 +0200] [34304] [INFO] Handling signal: int
+[2024-05-20 21:37:25 +0200] [34306] [INFO] Worker exiting (pid: 34306)
+[2024-05-20 21:37:25 +0200] [34307] [INFO] Worker exiting (pid: 34307)
+[2024-05-20 21:37:25 +0200] [34308] [INFO] Worker exiting (pid: 34308)
+[2024-05-20 21:37:25 +0200] [34305] [INFO] Worker exiting (pid: 34305)
+[2024-05-20 21:37:26 +0200] [34304] [INFO] Shutting down: Master
+[2024-05-20 21:38:55 +0200] [34368] [INFO] Starting gunicorn 20.1.0
+[2024-05-20 21:38:55 +0200] [34368] [INFO] Listening at: http://127.0.0.1:5000 (34368)
+[2024-05-20 21:38:55 +0200] [34368] [INFO] Using worker: sync
+[2024-05-20 21:38:55 +0200] [34369] [INFO] Booting worker with pid: 34369
+[2024-05-20 21:38:55 +0200] [34370] [INFO] Booting worker with pid: 34370
+[2024-05-20 21:38:55 +0200] [34371] [INFO] Booting worker with pid: 34371
+[2024-05-20 21:38:55 +0200] [34372] [INFO] Booting worker with pid: 34372
+[2024-05-20 21:43:31 +0200] [34368] [INFO] Handling signal: int
+[2024-05-20 21:43:31 +0200] [34370] [INFO] Worker exiting (pid: 34370)
+[2024-05-20 21:43:31 +0200] [34369] [INFO] Worker exiting (pid: 34369)
+[2024-05-20 21:43:31 +0200] [34371] [INFO] Worker exiting (pid: 34371)
+[2024-05-20 21:43:31 +0200] [34372] [INFO] Worker exiting (pid: 34372)
+[2024-05-20 21:43:31 +0200] [34368] [INFO] Shutting down: Master
+[2024-05-20 21:43:32 +0200] [34418] [INFO] Starting gunicorn 20.1.0
+[2024-05-20 21:43:32 +0200] [34418] [INFO] Listening at: http://127.0.0.1:5000 (34418)
+[2024-05-20 21:43:32 +0200] [34418] [INFO] Using worker: sync
+[2024-05-20 21:43:32 +0200] [34419] [INFO] Booting worker with pid: 34419
+[2024-05-20 21:43:32 +0200] [34420] [INFO] Booting worker with pid: 34420
+[2024-05-20 21:43:32 +0200] [34421] [INFO] Booting worker with pid: 34421
+[2024-05-20 21:43:32 +0200] [34422] [INFO] Booting worker with pid: 34422
+[2024-05-20 21:55:08 +0200] [34418] [INFO] Handling signal: int
+[2024-05-20 21:55:08 +0200] [34420] [INFO] Worker exiting (pid: 34420)
+[2024-05-20 21:55:08 +0200] [34419] [INFO] Worker exiting (pid: 34419)
+[2024-05-20 21:55:08 +0200] [34421] [INFO] Worker exiting (pid: 34421)
+[2024-05-20 21:55:08 +0200] [34422] [INFO] Worker exiting (pid: 34422)
+[2024-05-20 21:55:08 +0200] [34418] [INFO] Shutting down: Master
+[2024-05-20 21:55:09 +0200] [34533] [INFO] Starting gunicorn 20.1.0
+[2024-05-20 21:55:09 +0200] [34533] [INFO] Listening at: http://127.0.0.1:5000 (34533)
+[2024-05-20 21:55:09 +0200] [34533] [INFO] Using worker: sync
+[2024-05-20 21:55:09 +0200] [34534] [INFO] Booting worker with pid: 34534
+[2024-05-20 21:55:09 +0200] [34535] [INFO] Booting worker with pid: 34535
+[2024-05-20 21:55:09 +0200] [34536] [INFO] Booting worker with pid: 34536
+[2024-05-20 21:55:09 +0200] [34537] [INFO] Booting worker with pid: 34537
+[2024-05-20 21:58:12 +0200] [34533] [INFO] Handling signal: int
+[2024-05-20 21:58:12 +0200] [34534] [INFO] Worker exiting (pid: 34534)
+[2024-05-20 21:58:12 +0200] [34536] [INFO] Worker exiting (pid: 34536)
+[2024-05-20 21:58:12 +0200] [34535] [INFO] Worker exiting (pid: 34535)
+[2024-05-20 21:58:12 +0200] [34537] [INFO] Worker exiting (pid: 34537)
+[2024-05-20 21:58:12 +0200] [34533] [INFO] Shutting down: Master
+[2024-05-20 21:58:13 +0200] [34689] [INFO] Starting gunicorn 20.1.0
+[2024-05-20 21:58:13 +0200] [34689] [INFO] Listening at: http://127.0.0.1:5000 (34689)
+[2024-05-20 21:58:13 +0200] [34689] [INFO] Using worker: sync
+[2024-05-20 21:58:13 +0200] [34690] [INFO] Booting worker with pid: 34690
+[2024-05-20 21:58:13 +0200] [34691] [INFO] Booting worker with pid: 34691
+[2024-05-20 21:58:13 +0200] [34692] [INFO] Booting worker with pid: 34692
+[2024-05-20 21:58:13 +0200] [34693] [INFO] Booting worker with pid: 34693
+[2024-05-20 21:58:20 +0200] [34693] [ERROR] Error handling request /api/v1/orders
+Traceback (most recent call last):
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/gunicorn/workers/sync.py", line 136, in handle
+    self.handle_request(listener, req, client, addr)
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/gunicorn/workers/sync.py", line 179, in handle_request
+    respiter = self.wsgi(environ, resp.start_response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask/app.py", line 2548, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask_restx/api.py", line 671, in error_router
+    return original_handler(f)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask_restx/api.py", line 669, in error_router
+    return self.handle_error(e)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask_restx/api.py", line 671, in error_router
+    return original_handler(f)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask_restx/api.py", line 669, in error_router
+    return self.handle_error(e)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask_restx/api.py", line 402, in wrapper
+    resp = resource(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask/views.py", line 107, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask_restx/resource.py", line 41, in dispatch_request
+    resp = meth(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask_cors/decorator.py", line 130, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+                         ^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask_restx/marshalling.py", line 244, in wrapper
+    resp = f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/backend/app.py", line 155, in post
+    return jsonify(order_id=order_id, data=new_order)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask/json/__init__.py", line 342, in jsonify
+    return current_app.json.response(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask/json/provider.py", line 309, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask/json/provider.py", line 230, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.11/3.11.6/Frameworks/Python.framework/Versions/3.11/lib/python3.11/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.11/3.11.6/Frameworks/Python.framework/Versions/3.11/lib/python3.11/json/encoder.py", line 202, in encode
+    chunks = list(chunks)
+             ^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.11/3.11.6/Frameworks/Python.framework/Versions/3.11/lib/python3.11/json/encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/opt/homebrew/Cellar/python@3.11/3.11.6/Frameworks/Python.framework/Versions/3.11/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/opt/homebrew/Cellar/python@3.11/3.11.6/Frameworks/Python.framework/Versions/3.11/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/opt/homebrew/Cellar/python@3.11/3.11.6/Frameworks/Python.framework/Versions/3.11/lib/python3.11/json/encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask/json/provider.py", line 122, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type ObjectId is not JSON serializable
+[2024-05-20 22:05:30 +0200] [34689] [INFO] Handling signal: int
+[2024-05-20 22:05:30 +0200] [34693] [INFO] Worker exiting (pid: 34693)
+[2024-05-20 22:05:30 +0200] [34690] [INFO] Worker exiting (pid: 34690)
+[2024-05-20 22:05:30 +0200] [34691] [INFO] Worker exiting (pid: 34691)
+[2024-05-20 22:05:30 +0200] [34692] [INFO] Worker exiting (pid: 34692)
+[2024-05-20 22:05:30 +0200] [34689] [INFO] Shutting down: Master
+[2024-05-20 22:05:31 +0200] [34830] [INFO] Starting gunicorn 20.1.0
+[2024-05-20 22:05:31 +0200] [34830] [INFO] Listening at: http://127.0.0.1:5000 (34830)
+[2024-05-20 22:05:31 +0200] [34830] [INFO] Using worker: sync
+[2024-05-20 22:05:31 +0200] [34831] [INFO] Booting worker with pid: 34831
+[2024-05-20 22:05:32 +0200] [34832] [INFO] Booting worker with pid: 34832
+[2024-05-20 22:05:32 +0200] [34833] [INFO] Booting worker with pid: 34833
+[2024-05-20 22:05:32 +0200] [34834] [INFO] Booting worker with pid: 34834
+[2024-05-20 22:09:36 +0200] [34830] [INFO] Handling signal: int
+[2024-05-20 22:09:36 +0200] [34833] [INFO] Worker exiting (pid: 34833)
+[2024-05-20 22:09:36 +0200] [34832] [INFO] Worker exiting (pid: 34832)
+[2024-05-20 22:09:36 +0200] [34834] [INFO] Worker exiting (pid: 34834)
+[2024-05-20 22:09:36 +0200] [34831] [INFO] Worker exiting (pid: 34831)
+[2024-05-20 22:09:37 +0200] [34830] [INFO] Shutting down: Master
+[2024-05-20 22:09:38 +0200] [34894] [INFO] Starting gunicorn 20.1.0
+[2024-05-20 22:09:38 +0200] [34894] [INFO] Listening at: http://127.0.0.1:5000 (34894)
+[2024-05-20 22:09:38 +0200] [34894] [INFO] Using worker: sync
+[2024-05-20 22:09:38 +0200] [34895] [INFO] Booting worker with pid: 34895
+[2024-05-20 22:09:38 +0200] [34896] [INFO] Booting worker with pid: 34896
+[2024-05-20 22:09:38 +0200] [34897] [INFO] Booting worker with pid: 34897
+[2024-05-20 22:09:38 +0200] [34898] [INFO] Booting worker with pid: 34898
+[2024-05-20 22:18:43 +0200] [34894] [INFO] Handling signal: int
+[2024-05-20 22:18:43 +0200] [34898] [INFO] Worker exiting (pid: 34898)
+[2024-05-20 22:18:43 +0200] [34896] [INFO] Worker exiting (pid: 34896)
+[2024-05-20 22:18:43 +0200] [34895] [INFO] Worker exiting (pid: 34895)
+[2024-05-20 22:18:43 +0200] [34897] [INFO] Worker exiting (pid: 34897)
+[2024-05-20 22:18:44 +0200] [34894] [INFO] Shutting down: Master
+[2024-05-20 22:18:44 +0200] [35004] [INFO] Starting gunicorn 20.1.0
+[2024-05-20 22:18:44 +0200] [35004] [INFO] Listening at: http://127.0.0.1:5000 (35004)
+[2024-05-20 22:18:44 +0200] [35004] [INFO] Using worker: sync
+[2024-05-20 22:18:44 +0200] [35006] [INFO] Booting worker with pid: 35006
+[2024-05-20 22:18:44 +0200] [35007] [INFO] Booting worker with pid: 35007
+[2024-05-20 22:18:44 +0200] [35008] [INFO] Booting worker with pid: 35008
+[2024-05-20 22:18:44 +0200] [35009] [INFO] Booting worker with pid: 35009
+[2024-05-20 22:18:54 +0200] [35006] [ERROR] Error handling request /api/v1/orders
+Traceback (most recent call last):
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/gunicorn/workers/sync.py", line 136, in handle
+    self.handle_request(listener, req, client, addr)
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/gunicorn/workers/sync.py", line 179, in handle_request
+    respiter = self.wsgi(environ, resp.start_response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask/app.py", line 2548, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask_restx/api.py", line 671, in error_router
+    return original_handler(f)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask_restx/api.py", line 669, in error_router
+    return self.handle_error(e)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask_restx/api.py", line 671, in error_router
+    return original_handler(f)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask_restx/api.py", line 669, in error_router
+    return self.handle_error(e)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask_restx/api.py", line 402, in wrapper
+    resp = resource(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask/views.py", line 107, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask_restx/resource.py", line 41, in dispatch_request
+    resp = meth(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask_cors/decorator.py", line 130, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+                         ^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/venv/lib/python3.11/site-packages/flask_restx/marshalling.py", line 244, in wrapper
+    resp = f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/pshongwe/ALX/Orda_v1.0/backend/app.py", line 164, in post
+    logger.debug(f"New Order: {new_order}")
+    ^^^^^^
+NameError: name 'logger' is not defined
+[2024-05-20 22:20:33 +0200] [35004] [INFO] Handling signal: int
+[2024-05-20 22:20:33 +0200] [35006] [INFO] Worker exiting (pid: 35006)
+[2024-05-20 22:20:33 +0200] [35009] [INFO] Worker exiting (pid: 35009)
+[2024-05-20 22:20:33 +0200] [35007] [INFO] Worker exiting (pid: 35007)
+[2024-05-20 22:20:33 +0200] [35008] [INFO] Worker exiting (pid: 35008)
+[2024-05-20 22:20:34 +0200] [35004] [INFO] Shutting down: Master
+[2024-05-20 22:20:34 +0200] [37687] [INFO] Starting gunicorn 20.1.0
+[2024-05-20 22:20:34 +0200] [37687] [INFO] Listening at: http://127.0.0.1:5000 (37687)
+[2024-05-20 22:20:34 +0200] [37687] [INFO] Using worker: sync
+[2024-05-20 22:20:34 +0200] [37688] [INFO] Booting worker with pid: 37688
+[2024-05-20 22:20:34 +0200] [37689] [INFO] Booting worker with pid: 37689
+[2024-05-20 22:20:35 +0200] [37690] [INFO] Booting worker with pid: 37690
+[2024-05-20 22:20:35 +0200] [37691] [INFO] Booting worker with pid: 37691
+[2024-05-20 22:22:10 +0200] [37687] [INFO] Handling signal: int
+[2024-05-20 22:22:10 +0200] [37689] [INFO] Worker exiting (pid: 37689)
+[2024-05-20 22:22:10 +0200] [37690] [INFO] Worker exiting (pid: 37690)
+[2024-05-20 22:22:10 +0200] [37691] [INFO] Worker exiting (pid: 37691)
+[2024-05-20 22:22:10 +0200] [37688] [INFO] Worker exiting (pid: 37688)
+[2024-05-20 22:22:10 +0200] [37687] [INFO] Shutting down: Master
+[2024-05-20 22:22:11 +0200] [37714] [INFO] Starting gunicorn 20.1.0
+[2024-05-20 22:22:11 +0200] [37714] [INFO] Listening at: http://127.0.0.1:5000 (37714)
+[2024-05-20 22:22:11 +0200] [37714] [INFO] Using worker: sync
+[2024-05-20 22:22:11 +0200] [37715] [INFO] Booting worker with pid: 37715
+[2024-05-20 22:22:11 +0200] [37716] [INFO] Booting worker with pid: 37716
+[2024-05-20 22:22:11 +0200] [37717] [INFO] Booting worker with pid: 37717
+[2024-05-20 22:22:11 +0200] [37718] [INFO] Booting worker with pid: 37718
+[2024-05-20 22:25:06 +0200] [37714] [INFO] Handling signal: int
+[2024-05-20 22:25:06 +0200] [37717] [INFO] Worker exiting (pid: 37717)
+[2024-05-20 22:25:06 +0200] [37716] [INFO] Worker exiting (pid: 37716)
+[2024-05-20 22:25:06 +0200] [37715] [INFO] Worker exiting (pid: 37715)
+[2024-05-20 22:25:06 +0200] [37718] [INFO] Worker exiting (pid: 37718)
+[2024-05-20 22:25:07 +0200] [37714] [INFO] Shutting down: Master
+[2024-05-20 22:25:07 +0200] [37777] [INFO] Starting gunicorn 20.1.0
+[2024-05-20 22:25:07 +0200] [37777] [INFO] Listening at: http://127.0.0.1:5000 (37777)
+[2024-05-20 22:25:07 +0200] [37777] [INFO] Using worker: sync
+[2024-05-20 22:25:07 +0200] [37778] [INFO] Booting worker with pid: 37778
+[2024-05-20 22:25:07 +0200] [37779] [INFO] Booting worker with pid: 37779
+[2024-05-20 22:25:07 +0200] [37780] [INFO] Booting worker with pid: 37780
+[2024-05-20 22:25:07 +0200] [37781] [INFO] Booting worker with pid: 37781
+[2024-05-20 22:30:40 +0200] [37777] [INFO] Handling signal: int
+[2024-05-20 22:30:40 +0200] [37781] [INFO] Worker exiting (pid: 37781)
+[2024-05-20 22:30:40 +0200] [37780] [INFO] Worker exiting (pid: 37780)
+[2024-05-20 22:30:40 +0200] [37778] [INFO] Worker exiting (pid: 37778)
+[2024-05-20 22:30:40 +0200] [37779] [INFO] Worker exiting (pid: 37779)
+[2024-05-20 22:30:41 +0200] [37777] [INFO] Shutting down: Master
