@@ -58,8 +58,5 @@ OrdaSys offers a range of features designed to meet the needs of business owners
 ## Contributing
 Contributions to OrdaSys are welcome, Please feel free to submit pull requests or report issues on the repository.
 
-## Related Projects
-[OMSMiniProject](https://github.com/rsrahul1000/OMSMiniProject)
-
 ## Licensing
 OrdaSys is licensed under the MIT License. See the LICENSE file for details.
